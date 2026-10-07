@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Paulo César, O PC</title>
+<meta name="description" content="Dr. Paulo César, O PC — advogado, empresário e líder comunitário da zona sul de São Paulo. História, propostas, galeria e contato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1b2e; --ink-2:#1b2c45; --paper:#faf8f4; --paper-2:#f1ede5;
+  --gold:#b8913f; --gold-2:#d9b56a; --muted:#5d6878; --line:#e3ddd1;
+  --radius:18px; --max:1200px;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.2vw,3.2rem);margin:14px 0 18px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:620px}
+section{padding:120px 0;scroll-margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.3s}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--ink)}
+.btn-line{border:1px solid rgba(255,255,255,.35);color:#fff}.btn-line:hover{background:#fff;color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--gold)}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:.35s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.nav.solid{background:rgba(250,248,244,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.25rem;font-weight:600;color:#fff}
+.logo img{height:42px;width:auto}
+.nav.solid .logo{color:var(--ink)}
+.nav:not(.solid) .logo img{filter:brightness(0) invert(1)}
+.menu{display:flex;gap:34px;font-size:.92rem;font-weight:500;color:rgba(255,255,255,.85)}
+.menu a{position:relative}.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
+.menu a:hover::after{width:100%}
+.nav.solid .menu{color:var(--ink)}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;height:2px;background:#fff;margin:7px 6px;transition:.3s}
+.nav.solid .burger span{background:var(--ink)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;background:var(--ink);color:#fff;display:flex;align-items:stretch;overflow:hidden;padding:110px 0 0}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 55%,rgba(217,181,106,.06) 55.2%,transparent 75%),linear-gradient(115deg,transparent 62%,rgba(255,255,255,.03) 62.2%,transparent 90%)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 40%,rgba(184,145,63,.25),transparent 60%),linear-gradient(180deg,rgba(13,27,46,.4),var(--ink))}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;width:100%}
+.hero .wrap>div:first-child{padding:40px 0 90px}
+.hero .stage{align-self:stretch;height:auto}
+.hero .stage .person{position:absolute;top:40px;bottom:0;left:50%;translate:-50% 0;height:calc(100% - 40px)}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.4rem);margin:22px 0 24px}
+.hero h1 em{font-style:italic;color:var(--gold-2);font-weight:400}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,.75);max-width:540px;margin-bottom:38px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+/* hero stage: foto recortada + livro */
+.stage{position:relative;height:min(78vh,640px);display:flex;align-items:flex-end;justify-content:center}
+.stage::before{content:"";position:absolute;left:50%;top:46%;width:78%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(217,181,106,.28),rgba(217,181,106,0) 68%)}
+.stage .person{position:relative;height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55)) drop-shadow(0 6px 12px rgba(0,0,0,.35));-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent)}
+.book-wrap{position:absolute;left:-16%;bottom:7%;z-index:3;perspective:1400px;text-align:center}
+.book{position:relative;width:220px;height:315px;transform:rotateY(-24deg) rotateX(4deg);transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1);animation:float 6s ease-in-out infinite}
+.book-wrap:hover .book{transform:rotateY(-8deg) rotateX(2deg)}
+@keyframes float{50%{translate:0 -10px}}
+.book .cover{position:absolute;inset:0;border-radius:3px 8px 8px 3px;background:linear-gradient(135deg,#14243c 0%,#0a1424 60%,#050b15 100%);box-shadow:inset 6px 0 10px -4px rgba(0,0,0,.6),inset -1px 0 0 rgba(255,255,255,.08),0 40px 60px -15px rgba(0,0,0,.7),24px 22px 40px -12px rgba(0,0,0,.6);display:flex;flex-direction:column;justify-content:space-between;padding:26px 20px 20px 26px;color:#fff;text-align:left;overflow:hidden}
+.book .cover::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.07)}
+.book .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%)}
+.book .pages{position:absolute;top:5px;bottom:5px;right:-14px;width:16px;background:repeating-linear-gradient(90deg,#f4efe4 0 1px,#d9d2c3 1px 2px);transform:rotateY(90deg) translateZ(-1px);transform-origin:left;border-radius:0 2px 2px 0}
+.cover .k{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2)}
+.cover .t{font-family:var(--serif);font-size:1.95rem;line-height:1.02;font-weight:700;margin-top:auto}
+.cover .t span{display:block;color:var(--gold-2);font-style:italic;font-weight:400;font-size:1.05rem;margin-top:8px}
+.cover .rule{width:40px;height:2px;background:var(--gold);margin:16px 0 12px}
+.cover .a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.book-badge{position:absolute;top:-34px;right:-34px;z-index:4;width:74px;height:74px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;box-shadow:0 10px 25px -5px rgba(0,0,0,.5);transform:rotate(12deg)}
+.book-badge b{font-family:var(--serif);font-size:1rem;letter-spacing:0;display:block;text-transform:none}
+.book-line{display:flex;align-items:center;gap:16px;margin:-8px 0 34px;padding:16px 20px;border:1px solid rgba(217,181,106,.35);border-radius:14px;background:rgba(217,181,106,.07);max-width:540px}
+.book-line svg{width:30px;height:30px;color:var(--gold-2);flex:none}
+.book-line small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2)}
+.book-line strong{font-family:var(--serif);font-weight:600;font-size:1.15rem}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;letter-spacing:.3em;color:rgba(255,255,255,.5);text-transform:uppercase}
+
+/* STRIP */
+.strip{background:var(--ink-2);color:#fff;padding:0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div.item{padding:38px 26px;border-left:1px solid rgba(255,255,255,.08)}
+.strip div.item:last-child{border-right:1px solid rgba(255,255,255,.08)}
+.strip b{font-family:var(--serif);font-size:2.4rem;color:var(--gold-2);display:block;line-height:1;margin-bottom:8px;font-weight:600}
+.strip span{font-size:.88rem;color:rgba(255,255,255,.7)}
+
+/* STORY */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story p{color:var(--muted);margin-bottom:18px}
+.story blockquote{font-family:var(--serif);font-size:1.45rem;font-style:italic;line-height:1.4;border-left:2px solid var(--gold);padding-left:22px;margin:30px 0;color:var(--ink)}
+.video{position:relative;aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;background:#000 center/cover;cursor:pointer;box-shadow:0 30px 60px -25px rgba(13,27,46,.5)}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,27,46,.7),transparent 60%)}
+.play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:var(--gold);z-index:2;display:grid;place-items:center;transition:.3s}
+.video:hover .play{transform:scale(1.08)}
+.play::before{content:"";border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
+.video-cap{position:absolute;left:24px;bottom:20px;z-index:2;color:#fff;font-size:.9rem}
+.video-cap b{display:block;font-family:var(--serif);font-size:1.2rem}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.story-imgs img{border-radius:12px;aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* CREDENTIALS */
+.cred{background:var(--paper-2)}
+.cred-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;transition:.35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(13,27,46,.35);border-color:transparent}
+.card h3{font-size:1.35rem;margin-bottom:16px}
+.card ul{list-style:none}
+.card li{padding:9px 0;border-top:1px solid var(--line);font-size:.93rem;color:var(--muted);display:flex;gap:10px}
+.card li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:9px}
+.icon{width:48px;height:48px;border-radius:12px;background:var(--ink);color:var(--gold-2);display:grid;place-items:center;margin-bottom:22px}
+.icon svg{width:24px;height:24px}
+
+/* PROPOSALS */
+.props{background:var(--ink);color:#fff}
+.props .lead{color:rgba(255,255,255,.65)}
+.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);margin-top:60px;border-radius:var(--radius);overflow:hidden}
+.prop{background:var(--ink);padding:44px 36px;position:relative;transition:.4s;min-height:280px}
+.prop:hover{background:var(--ink-2)}
+.prop .n{font-family:var(--serif);font-size:.95rem;color:var(--gold-2);margin-bottom:46px;display:block}
+.prop h3{font-size:1.6rem;margin-bottom:14px}
+.prop p{color:rgba(255,255,255,.65);font-size:.95rem}
+.prop::after{content:"";position:absolute;left:36px;bottom:0;width:0;height:2px;background:var(--gold);transition:.5s}
+.prop:hover::after{width:calc(100% - 72px)}
+
+/* HONOR */
+.honor .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.honor-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:14px}
+.honor-imgs img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.honor-imgs img:first-child{grid-row:span 2}
+
+/* GALLERY */
+.gallery{background:var(--paper-2)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:36px 0 40px}
+.filters button{font:inherit;font-size:.88rem;font-weight:500;padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:.25s}
+.filters button.on,.filters button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{columns:4 240px;column-gap:14px}
+.grid figure{break-inside:avoid;margin-bottom:14px;border-radius:12px;overflow:hidden;cursor:zoom-in;position:relative;background:var(--line)}
+.grid img{width:100%;transition:transform .6s}
+.grid figure:hover img{transform:scale(1.05)}
+.more{text-align:center;margin-top:40px}
+
+/* AVIATION */
+.avia{background:var(--paper);overflow:hidden}
+.avia .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.avia-collage{position:relative;height:600px}
+.avia-collage figure{position:absolute;border-radius:var(--radius);overflow:hidden;box-shadow:0 40px 70px -30px rgba(13,27,46,.55);background:var(--line)}
+.avia-collage img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.avia-collage figure:hover img{transform:scale(1.05)}
+.avia-collage .f1{left:0;top:0;width:64%;height:72%;z-index:1}
+.avia-collage .f2{right:0;top:12%;width:46%;height:46%;z-index:2;border:6px solid var(--paper)}
+.avia-collage .f3{right:8%;bottom:0;width:52%;height:44%;z-index:3;border:6px solid var(--paper)}
+.avia-collage figcaption{position:absolute;left:14px;bottom:14px;background:rgba(13,27,46,.78);backdrop-filter:blur(8px);color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.avia-collage .f3 figcaption{left:auto;right:14px}
+.avia-tag{position:absolute;left:4%;bottom:6%;z-index:4;background:var(--ink);color:#fff;border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -12px rgba(13,27,46,.6)}
+.avia-tag svg{width:34px;height:34px;color:var(--gold-2)}
+.avia-tag b{font-family:var(--serif);font-size:1.15rem;display:block;line-height:1.1}
+.avia-tag small{font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.12em;text-transform:uppercase}
+.avia p{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 34px}
+.chips span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.88rem;font-weight:500}
+.chips span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.wa-box{background:var(--ink);color:#fff;border-radius:var(--radius);padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.wa-box h3{font-size:1.3rem;margin-bottom:4px}
+.wa-box p{color:rgba(255,255,255,.65);font-size:.93rem;margin:0}
+.btn-wa{background:#25d366;color:#0b2e17}.btn-wa:hover{background:#1ebe5b}
+.btn-wa svg,.wa-float svg{width:20px;height:20px}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(0,0,0,.45);transition:.3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px}
+
+/* VIDEO TESTIMONIALS */
+.vt{background:var(--ink-2);color:#fff;overflow:hidden}
+.vt-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:54px}
+.vt-head .lead{color:rgba(255,255,255,.65)}
+.btn-yt{background:#ff0033;color:#fff}.btn-yt:hover{background:#fff;color:#ff0033}
+.btn-yt svg{width:22px;height:22px}
+.vt-feature{display:grid;grid-template-columns:1.35fr 1fr;gap:0;border-radius:var(--radius);overflow:hidden;background:var(--ink);border:1px solid rgba(255,255,255,.08);margin-bottom:26px}
+.vt-feature .video{border-radius:0;aspect-ratio:16/9;box-shadow:none}
+.vt-quote{padding:44px 40px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.vt-quote .qm{font-family:var(--serif);font-size:6rem;line-height:.6;color:var(--gold);height:44px}
+.vt-quote blockquote{font-family:var(--serif);font-size:1.6rem;line-height:1.3;margin:10px 0 24px}
+.who{display:flex;align-items:center;gap:12px;font-size:.88rem;color:rgba(255,255,255,.7)}
+.who img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top;background:var(--ink-2);border:2px solid var(--gold)}
+.who b{display:block;color:#fff;font-weight:600}
+.vt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vt-card{background:var(--ink);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden;transition:.35s}
+.vt-card:hover{border-color:rgba(217,181,106,.5);transform:translateY(-5px)}
+.vt-card .video{border-radius:0;aspect-ratio:16/9;box-shadow:none}
+.vt-card .body{padding:22px 24px 24px}
+.vt-card .qm{font-family:var(--serif);font-size:3rem;line-height:.5;color:var(--gold);display:block;height:18px}
+.vt-card h3{font-size:1.15rem;line-height:1.3;margin:8px 0 18px;font-weight:500}
+.vids .play,.vt-card .play{width:60px;height:60px}.vt-card .play::before{border-left-width:16px;border-top-width:10px;border-bottom-width:10px;margin-left:4px}
+
+/* PARTNERS */
+.partners{padding:90px 0;border-top:1px solid var(--line)}
+.logos{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+.logos a{background:#fff;border:1px solid var(--line);border-radius:14px;height:110px;display:grid;place-items:center;padding:18px;transition:.3s}
+.logos a:hover{border-color:var(--gold);transform:translateY(-3px)}
+.logos img{max-height:72px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:.3s}
+.logos a:hover img{filter:none;opacity:1}
+
+/* CONTACT */
+.contact{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:url(https://www.agaleradrpc.com.br/assets/img/fotos/agaleradrpc-20.jpg) center/cover;opacity:.12}
+.contact .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.contact .lead{color:rgba(255,255,255,.7)}
+.channels{display:grid;gap:14px}
+.channel{display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.03);transition:.3s}
+.channel:hover{border-color:var(--gold);background:rgba(184,145,63,.08)}
+.channel svg{width:26px;height:26px;color:var(--gold-2);flex:none}
+.channel small{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.channel span{font-weight:500;word-break:break-all}
+
+footer{background:#08121f;color:rgba(255,255,255,.5);font-size:.85rem;padding:36px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a:hover{color:var(--gold-2)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(8,18,31,.95);z-index:100;display:none;align-items:center;justify-content:center;padding:40px}
+.lb.open{display:flex}
+.lb img{max-height:86vh;max-width:90vw;border-radius:8px}
+.lb button{position:absolute;background:rgba(255,255,255,.1);border:0;color:#fff;width:52px;height:52px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+.lb button:hover{background:var(--gold)}
+.lb .x{top:24px;right:24px}.lb .p{left:24px;top:50%}.lb .nx{right:24px;top:50%}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  section{padding:84px 0}
+  .menu{position:fixed;inset:84px 0 auto 0;flex-direction:column;gap:0;background:var(--paper);color:var(--ink);padding:10px 24px 24px;transform:translateY(-130%);transition:.4s;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu.open{transform:none}
+  .burger{display:block}
+  .hero .wrap,.story .wrap,.honor .wrap,.contact .wrap{grid-template-columns:1fr;gap:48px}
+  .hero .wrap>div:first-child{padding:20px 0 0}
+  .hero .stage{height:480px}
+  .hero .stage .person{top:0;height:100%}
+  .book-wrap{left:0;bottom:4%}
+  .book{width:140px;height:200px}
+  .book .cover{padding:16px 12px 14px 18px}
+  .cover .k{font-size:.48rem;letter-spacing:.2em}
+  .cover .t{font-size:1.2rem}.cover .t span{font-size:.8rem;margin-top:4px}
+  .cover .rule{margin:10px 0 8px}
+  .cover .a{font-size:.55rem;letter-spacing:.12em;white-space:nowrap}
+  .book-badge{width:58px;height:58px;right:-30px;top:-30px}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .cred-grid,.props-grid,.vt-row{grid-template-columns:1fr}
+  .avia .wrap{grid-template-columns:1fr;gap:48px}
+  .avia-collage{height:460px}
+  .vt-feature{grid-template-columns:1fr}
+  .vt-quote{padding:30px 26px}
+  .vt-quote blockquote{font-size:1.3rem}
+  .logos{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .logos{grid-template-columns:repeat(2,1fr)}
+  .strip div.item{padding:26px 16px}
+  .strip b{font-size:1.9rem}
+  .honor-imgs{grid-template-rows:150px 150px}
+  .avia-collage{height:380px}
+  .avia-tag{padding:12px 14px;left:0}.avia-tag b{font-size:.95rem}
+  .wa-box{padding:24px 20px}.wa-box .btn{width:100%;justify-content:center}
+  .wa-float{width:52px;height:52px;right:16px;bottom:16px}
+  .lb{padding:16px}.lb .p{left:8px}.lb .nx{right:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="logo"><img src="https://www.agaleradrpc.com.br/assets/img/logo-the-doctor-pc.png" alt="Dr Paulo César, O PC"></a>
+    <nav class="menu" id="menu">
+      <a href="#aviacao">Aviação</a>
+      <a href="#historia">História</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#propostas">Propostas</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">A Galera do Dr. PC</span>
+      <h1>Dr. Paulo César,<br><em>O PC</em></h1>
+      <p>Do Jardim Campinas, na zona sul de São Paulo, para o Direito, o empreendedorismo e o trabalho social. Uma trajetória construída com estudo, esforço e compromisso com a comunidade.</p>
+      <div class="book-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4.5A1.5 1.5 0 015.5 3H20v16H5.5A1.5 1.5 0 004 20.5z"/><path d="M4 20.5A1.5 1.5 0 005.5 22H20M8 7h8M8 11h6"/></svg>
+        <div><small>Autor do livro</small><strong>Crimes Eleitorais — Corrupção Eleitoral</strong></div>
+      </div>
+      <div class="ctas">
+        <a href="mailto:assessoriadrpaulocesar@gmail.com?subject=Livro%20Crimes%20Eleitorais" class="btn btn-gold">Quero o livro →</a>
+        <a href="#propostas" class="btn btn-line">Conheça as propostas</a>
+      </div>
+    </div>
+    <div class="stage rv">
+      <img class="person" src="img/pc-hero.png" alt="Dr. Paulo César, O PC">
+      <a class="book-wrap" href="mailto:assessoriadrpaulocesar@gmail.com?subject=Livro%20Crimes%20Eleitorais" aria-label="Livro Crimes Eleitorais — Corrupção Eleitoral">
+        <span class="book-badge"><span><b>Livro</b>do autor</span></span>
+        <div class="book">
+          <div class="pages"></div>
+          <div class="cover">
+            <span class="k">Direito Eleitoral</span>
+            <div class="t">Crimes Eleitorais<span>Corrupção Eleitoral</span></div>
+            <div><div class="rule"></div><span class="a">Dr. Paulo César</span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="item"><b>Doutor</b><span>em Direito pela PUC</span></div>
+    <div class="item"><b>Mestre</b><span>em Direito Ambiental</span></div>
+    <div class="item"><b>5×</b><span>Campeão Brasileiro de Jet Ski</span></div>
+    <div class="item"><b>3</b><span>idiomas: inglês, espanhol e japonês</span></div>
+  </div>
+</section>
+
+<section class="avia" id="aviacao">
+  <div class="wrap">
+    <div class="avia-collage rv">
+      <figure class="f1"><img src="img/aviacao-aviao.jpg" alt="Dr. Paulo César na cabine de um avião Cirrus" loading="lazy"><figcaption>Avião</figcaption></figure>
+      <figure class="f2"><img src="img/aviacao-helicoptero.jpg" alt="Dr. Paulo César pilotando helicóptero" loading="lazy"><figcaption>Helicóptero</figcaption></figure>
+      <figure class="f3"><img src="img/aviacao-cabine.jpg" alt="Vista da cabine durante decolagem" loading="lazy"><figcaption>Na cabine</figcaption></figure>
+      <div class="avia-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.5 21l1.5-1 1.5 1v-2.5L12 17V12l8 3v-2l-8-5V3.5a1.5 1.5 0 00-3 0V8l-8 5v2l8-3v5l-1.5 1.5z" transform="translate(1.5 0)"/></svg>
+        <div><small>Piloto</small><b>Avião & Helicóptero</b></div>
+      </div>
+    </div>
+    <div class="rv">
+      <span class="eyebrow">Aviação</span>
+      <h2>Uma paixão que ganhou os céus</h2>
+      <p>Além do Direito, o Dr. Paulo César é piloto de avião e de helicóptero, com pós-graduação em Engenharia Aeronáutica. A aviação faz parte da sua história e é uma das suas grandes paixões.</p>
+      <div class="chips">
+        <span>Piloto de avião</span>
+        <span>Piloto de helicóptero</span>
+        <span>Pós em Engenharia Aeronáutica</span>
+      </div>
+      <div class="wa-box">
+        <div>
+          <h3>Tem interesse em aviação?</h3>
+          <p>Quer mais informações? Fale direto com a equipe pelo WhatsApp.</p>
+        </div>
+        <a class="btn btn-wa js-wa" data-msg="Olá! Tenho interesse em aviação e gostaria de mais informações." href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+          Quero saber mais
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="historia">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Minha história</span>
+      <h2>De família humilde a referência na zona sul</h2>
+      <p>Oriundo de família humilde, Paulo César nasceu e cresceu no bairro do Jardim Campinas, zona sul de São Paulo, onde passou por muitas dificuldades e superou barreiras — sempre na certeza de que teria um futuro melhor. Ainda criança, começou a trabalhar cedo para ajudar a mãe, recolhendo latinhas de alumínio para vender, mas sempre almejando algo mais.</p>
+      <p>Concluiu o ensino médio na rede pública e ingressou na Universidade Ibirapuera, onde realizou o sonho de cursar Direito. Em seguida, pós-graduou-se pela Universidade Damásio de Jesus.</p>
+      <blockquote>Através de seus projetos, faz aquilo que nunca teve quando era criança.</blockquote>
+      <p>Hoje, conhecido como “PC”, transforma em realidade o que era sonho para muitos moradores da região, levando cultura, lazer, esporte, saúde, educação e inclusão social por meio de eventos e estruturas permanentes.</p>
+    </div>
+    <div class="rv">
+      <div class="video" data-yt="AFS188n3dIg" style="background-image:url(https://img.youtube.com/vi/AFS188n3dIg/hqdefault.jpg)">
+        <div class="play"></div>
+        <div class="video-cap"><b>Assista ao vídeo</b>Conheça o Dr. PC</div>
+      </div>
+      <div class="story-imgs">
+        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-1.jpg" alt="Ação social com crianças da comunidade" loading="lazy">
+        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-6.jpg" alt="Evento comunitário na zona sul" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cred" id="trajetoria">
+  <div class="wrap">
+    <div class="cred-head rv">
+      <div>
+        <span class="eyebrow">Trajetória</span>
+        <h2>Formação e atuação</h2>
+      </div>
+      <a href="https://www.agaleradrpc.com.br/biografia.php" target="_blank" rel="noopener" class="btn btn-dark">Biografia completa →</a>
+    </div>
+    <div class="cred-grid">
+      <div class="card rv">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
+        <h3>Formação acadêmica</h3>
+        <ul>
+          <li>Doutorado em Direito pela PUC</li>
+          <li>Pós-graduado pela PUC em Crimes Eleitorais</li>
+          <li>Mestre em Direito Ambiental</li>
+          <li>Especialista em Direito Público (Difuso e Coletivo)</li>
+          <li>Pós-graduado em Direito Penal e Processo Penal</li>
+          <li>Pós-graduação em Engenharia Aeronáutica</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></div>
+        <h3>Atividades exercidas</h3>
+        <ul>
+          <li>Autor do livro “Crimes Eleitorais e Corrupção Eleitoral”</li>
+          <li>Procurador do Conselho Federal dos Parlamentares</li>
+          <li>Membro do CONSEG — Conselho Comunitário de Segurança</li>
+          <li>Juiz Arbitral, conciliação e mediação</li>
+          <li>Supervisor Municipal de Cultura</li>
+          <li>Diretor de Parque — Secretaria do Verde e Meio Ambiente</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></div>
+        <h3>Além do Direito</h3>
+        <ul>
+          <li>Penta Campeão Brasileiro de Jet Ski</li>
+          <li>Piloto de helicóptero e de avião</li>
+          <li>Líder comunitário: Natal e Páscoa Solidária</li>
+          <li>Empresário nos ramos imobiliário e de assessoria</li>
+          <li>Diplomado pela Johns Hopkins University SAIS — EUA</li>
+          <li>Inglês, espanhol e japonês avançados</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="props" id="propostas">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Nossas propostas</span>
+      <h2>Compromissos com São Paulo</h2>
+      <p class="lead">Propostas nas áreas de saúde, educação, habitação, cultura, esporte, lazer, sustentabilidade e mobilidade — pensadas para as regiões que mais precisam.</p>
+    </div>
+    <div class="props-grid">
+      <div class="prop rv"><span class="n">01</span><h3>Saúde</h3><p>Acelerar o processo de construção das unidades de saúde que já estão previstas.</p></div>
+      <div class="prop rv"><span class="n">02</span><h3>Habitação</h3><p>Ampliar e viabilizar a regularização fundiária.</p></div>
+      <div class="prop rv"><span class="n">03</span><h3>Educação</h3><p>Aumentar o número de professoras nas salas da educação infantil — hoje é 1 professora para 35 alunos.</p></div>
+      <div class="prop rv"><span class="n">04</span><h3>Cultura, Esporte e Lazer</h3><p>Usar os espaços públicos da cidade para eventos culturais, promovendo artistas regionais e o crescimento cultural da população.</p></div>
+      <div class="prop rv"><span class="n">05</span><h3>Sustentabilidade</h3><p>Levar emprego às regiões extremas da cidade, formalizando parcerias com empresas privadas.</p></div>
+      <div class="prop rv"><span class="n">06</span><h3>Transporte e Mobilidade</h3><p>Acelerar a construção da ponte que ligará o Grajaú (Jd. Gaivotas) à Cidade Dutra (Sesc Interlagos).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="honor">
+  <div class="wrap">
+    <div class="honor-imgs rv">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_capa.jpg" alt="Homenagem em Cerro Corá, Paraguai" loading="lazy">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_01.jpg" alt="Placa de reconhecimento e gratidão" loading="lazy">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_03.jpg" alt="Registro da homenagem" loading="lazy">
+    </div>
+    <div class="rv">
+      <span class="eyebrow">Reconhecimento internacional</span>
+      <h2>Homenageado no Paraguai, em Cerro Corá</h2>
+      <p class="lead">O Dr. Paulo César, procurador do CONFEP, foi homenageado pelas autoridades da cidade de Cerro Corá, ao lado do prefeito Wil Figueredo, pelos trabalhos sociais realizados — juntamente com a juíza da Vara de Execuções Criminais de Pedro Juan Caballero, Dra. Dalmi Gomes.</p>
+      <br>
+      <a href="https://www.agaleradrpc.com.br/cerro-cora.php" target="_blank" rel="noopener" class="btn btn-dark">Confira a matéria →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Galeria</span>
+      <h2>Ao lado da comunidade</h2>
+      <p class="lead">Eventos, ações sociais, obras, futebol e os momentos da Galera do Dr. PC.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="on" data-f="drpaulocesar">Ações sociais</button>
+      <button data-f="agaleradrpc">A Galera</button>
+      <button data-f="obras">Obras</button>
+      <button data-f="futebol">Futebol</button>
+      <button data-f="instagram">Instagram</button>
+      <button data-f="coloniamariaauxiliadora">Paraguai</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more"><button class="btn btn-dark" id="more" style="border:0;cursor:pointer;font:inherit;font-weight:600">Carregar mais fotos</button></div>
+  </div>
+</section>
+
+<section class="vt" id="videos">
+  <div class="wrap">
+    <div class="vt-head rv">
+      <div>
+        <span class="eyebrow">Em vídeo</span>
+        <h2>Histórias que falam por si</h2>
+        <p class="lead">Ações sociais, eventos e momentos com a comunidade, registrados no canal oficial.</p>
+      </div>
+      <a class="btn btn-yt" href="https://www.youtube.com/@dr.paulocesarop.c3416?sub_confirmation=1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 00-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 001 7.2 31 31 0 00.5 12 31 31 0 001 16.8a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1 31 31 0 00.5-4.8 31 31 0 00-.5-4.8zM9.7 15.1V8.9L15.5 12z"/></svg>
+        Inscreva-se no canal
+      </a>
+    </div>
+    <div class="vt-feature rv">
+      <div class="video" data-yt="AxSjKHTzmk4" style="background-image:url(https://img.youtube.com/vi/AxSjKHTzmk4/hqdefault.jpg)"><div class="play"></div></div>
+      <div class="vt-quote">
+        <span class="qm">“</span>
+        <blockquote>Conheça os trabalhos do Dr. Paulo César, o PC</blockquote>
+        <div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>Canal oficial no YouTube</div></div>
+      </div>
+    </div>
+    <div class="vt-row" id="vids"></div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="wrap">
+    <span class="eyebrow rv">Parceiros</span>
+    <div class="logos rv">
+      <a href="http://www.pcferreiraassessoria.com.br/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/pc-empreendimentos.jpg" alt="PC da S Ferreira Empreendimentos"></a>
+      <a href="http://www.drpctrade.com/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/pc-trade.png" alt="PC Trade Importação & Exportação"></a>
+      <a href="https://www.grupodrpc.com/servicos" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/pc-ferreira-agenda-florida.jpg" alt="PC Ferreira Agenda Florida"></a>
+      <a href="https://www.grupodrpc.com/servicos" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/real-state-development.jpg" alt="PC Ferreira Real State Development"></a>
+      <a href="https://hcagencia.com.br/sites/pcfenixfinanceira/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/pc-fenix-financeira.jpg" alt="PC Fênix Financeira"></a>
+      <a href="https://www.grupodrpc.com/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/logo-thunder.png" alt="Grupo Dr PC"></a>
+      <a href="https://www.pcafenix.com/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/logo-fenix.png" alt="Fênix Assessoria Empresarial"></a>
+      <a href="http://www.pauloferreiraadvogados.com.br/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/logo-paulo-ferreira.png" alt="Dr Paulo Ferreira Advogados"></a>
+      <a href="https://republicanos10.org.br/" target="_blank" rel="noopener"><img src="https://www.agaleradrpc.com.br/assets/img/parceiros/logo-republicanos.png" alt="Republicanos"></a>
+      <a href="http://www.pcferreiraassessoria.com.br/" target="_blank" rel="noopener" style="font-family:var(--serif);font-size:.95rem;text-align:center;color:var(--muted)">PC Ferreira<br>Assessoria</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Fale com O PC</span>
+      <h2>Deixe seu recado para o Dr. Paulo César</h2>
+      <p class="lead">Sugestões, convites, demandas do seu bairro ou uma mensagem de apoio — a assessoria responde.</p>
+      <br>
+      <a href="mailto:assessoriadrpaulocesar@gmail.com" class="btn btn-gold">Enviar mensagem →</a>
+    </div>
+    <div class="channels rv">
+      <a class="channel js-wa" data-msg="Olá! Vim pelo site do Dr. PC." href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+        <div><small>WhatsApp</small><span>(11) 97110-9006</span></div>
+      </a>
+      <a class="channel" href="mailto:assessoriadrpaulocesar@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div><small>E-mail</small><span>assessoriadrpaulocesar@gmail.com</span></div>
+      </a>
+      <a class="channel" href="https://www.instagram.com/drpaulocesaropc/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+        <div><small>Instagram</small><span>@drpaulocesaropc</span></div>
+      </a>
+      <a class="channel" href="https://www.facebook.com/drpaulocesaropc" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h2z"/></svg>
+        <div><small>Facebook</small><span>/drpaulocesaropc</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Dr. Paulo César, O PC — A Galera do Dr. PC</span>
+    <span><a href="https://www.instagram.com/drpaulocesaropc/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/drpaulocesaropc" target="_blank" rel="noopener">Facebook</a> · <a href="#inicio">Voltar ao topo ↑</a></span>
+  </div>
+</footer>
+
+<a class="wa-float js-wa" data-msg="Olá! Vim pelo site do Dr. PC." href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg></a>
+
+<div class="lb" id="lb">
+  <button class="x" aria-label="Fechar">✕</button>
+  <button class="p" aria-label="Anterior">‹</button>
+  <img alt="">
+  <button class="nx" aria-label="Próxima">›</button>
+</div>
+
+<script>
+const B='https://www.agaleradrpc.com.br/assets/img/fotos/';
+const P='p'; // sufixo usado em alguns arquivos (retrato)
+const sets={
+  drpaulocesar:'1 2 3 4p 5p 6 7p 8 9 10 11 12 13 14 15 16 17 18p 19 20 21p 22p 23 24p 25p 26p 27p 28p 29p 30 31p 32 33p 34 35 36 37 38 39 40 41 42 43 44p 45p 46p 47 48 49 50p 51p 52p 53 54p 55 56p 57 58 60 62p 63p 64p 65 66 67p 68 69p 70p 71p 72 73p 74 75p 76 77p 78p 79p 80p 81 82p 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102p 103p 104 105 106 107 108 109p',
+  agaleradrpc:'1p 2p 3p 4p 5p 6p 7p 8p 9p 10p 11p 12p 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31p 32 33 34 35 36 37 38p 39p 40p 41 42p 43p 44 45 46 47 48 49 50p 51p 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84',
+  obras:'1p 2p 3p 4p 5p 6 7p 8 9 10p 11p 12p 13p 14p',
+  futebol:'1 2 3 4 5 6 7 8 9',
+  instagram:null,
+  coloniamariaauxiliadora:'01 02 03 04 05 06 07 08 09'
+};
+function list(k){
+  if(k==='instagram'){const a=[];for(let i=1;i<=40;i++){const n=String(i).padStart(2,'0');a.push(B+(i<=28?'instagramp_':'instagram_')+n+'.jpg')}return a}
+  if(k==='coloniamariaauxiliadora')return sets[k].split(' ').map(n=>B+k+'_'+n+'.jpg');
+  return sets[k].split(' ').map(n=>B+k+'-'+n+'.jpg');
+}
+const grid=document.getElementById('grid'),more=document.getElementById('more');
+let cur=[],shown=0;const STEP=16;
+function render(){
+  cur.slice(shown,shown+STEP).forEach((src,i)=>{
+    const f=document.createElement('figure');const idx=shown+i;
+    f.innerHTML=`<img src="${src}" alt="Foto da galeria do Dr. PC" loading="lazy">`;
+    f.querySelector('img').onerror=()=>f.remove();
+    f.onclick=()=>openLb(idx);grid.appendChild(f);
+  });
+  shown=Math.min(shown+STEP,cur.length);more.style.display=shown<cur.length?'':'none';
+}
+function load(k){grid.innerHTML='';cur=list(k);shown=0;render()}
+document.getElementById('filters').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));load(b.dataset.f)};
+more.onclick=render;load('drpaulocesar');
+
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');let li=0;
+function openLb(i){li=i;lbi.src=cur[li];lb.classList.add('open')}
+function step(d){li=(li+d+cur.length)%cur.length;lbi.src=cur[li]}
+lb.querySelector('.x').onclick=()=>lb.classList.remove('open');
+lb.querySelector('.p').onclick=()=>step(-1);lb.querySelector('.nx').onclick=()=>step(1);
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+
+// WhatsApp — troque o número aqui (DDI + DDD + número, só dígitos)
+const WHATSAPP='5511971109006';
+document.querySelectorAll('.js-wa').forEach(a=>{a.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(a.dataset.msg||'Olá! Vim pelo site do Dr. PC.')}`});
+
+const vids=[
+  ['rd5NV6UmXUk','A Galera DR. PC'],
+  ['UwmM6UIHjGU','Dia das Crianças'],
+  ['5RWJNkh3Jq8','Capoeira'],
+  ['PoPqdcQKrcQ','Coquetel com o PC'],
+  ['zoSu370Yfcc','Para que haja a existência de um ser…'],
+  ['AFS188n3dIg','Autor do livro Crimes Eleitorais — Corrupção Eleitoral']
+];
+document.getElementById('vids').innerHTML=vids.map(([id,t])=>`<article class="vt-card rv"><div class="video" data-yt="${id}" style="background-image:url(https://img.youtube.com/vi/${id}/hqdefault.jpg)"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3>${t}</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>`).join('');
+document.addEventListener('click',e=>{const v=e.target.closest('.video[data-yt]');if(!v||v.querySelector('iframe'))return;
+  v.insertAdjacentHTML('beforeend',`<iframe src="https://www.youtube.com/embed/${v.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Vídeo"></iframe>`)});
+
+const nav=document.getElementById('nav'),menu=document.getElementById('menu');
+const onScroll=()=>nav.classList.toggle('solid',scrollY>40);addEventListener('scroll',onScroll);onScroll();
+document.getElementById('burger').onclick=()=>{menu.classList.toggle('open');nav.classList.add('solid')};
+menu.onclick=e=>{if(e.target.tagName==='A')menu.classList.remove('open')};
+
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
