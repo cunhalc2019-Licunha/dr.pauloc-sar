@@ -77,8 +77,8 @@ section{padding:120px 0;scroll-margin-top:40px}
 .cover .t span{display:block;color:var(--gold-2);font-style:italic;font-weight:400;font-size:1.05rem;margin-top:8px}
 .cover .rule{width:40px;height:2px;background:var(--gold);margin:16px 0 12px}
 .cover .a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
-.book-badge{position:absolute;top:-34px;right:-34px;z-index:4;width:74px;height:74px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;box-shadow:0 10px 25px -5px rgba(0,0,0,.5);transform:rotate(12deg)}
-.book-badge b{font-family:var(--serif);font-size:1rem;letter-spacing:0;display:block;text-transform:none}
+.book-badge{position:absolute;top:-44px;right:-44px;z-index:4;width:98px;height:98px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-size:.64rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.2;box-shadow:0 10px 25px -5px rgba(0,0,0,.5);transform:rotate(12deg)}
+.book-badge b{font-family:var(--serif);font-size:1rem;letter-spacing:0;display:block;text-transform:none;margin-bottom:3px}
 .book-line{display:flex;align-items:center;gap:16px;margin:-8px 0 34px;padding:16px 20px;border:1px solid rgba(217,181,106,.35);border-radius:14px;background:rgba(217,181,106,.07);max-width:540px}
 .book-line svg{width:30px;height:30px;color:var(--gold-2);flex:none}
 .book-line small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2)}
@@ -179,6 +179,25 @@ section{padding:120px 0;scroll-margin-top:40px}
 .wa-float:hover{transform:scale(1.08)}
 .wa-float svg{width:30px;height:30px}
 
+/* HONORS */
+.hon{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hon::before{content:"";position:absolute;right:-180px;top:-180px;width:560px;height:560px;border-radius:50%;border:1px solid rgba(217,181,106,.14);box-shadow:0 0 0 70px rgba(217,181,106,.03),0 0 0 140px rgba(217,181,106,.02)}
+.hon .wrap{position:relative}
+.hon-head{text-align:center;max-width:720px;margin:0 auto 60px}
+.hon-head .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
+.hon-head .lead{color:rgba(255,255,255,.65);margin:0 auto}
+.hon-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-auto-rows:auto;gap:20px}
+.hon-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);padding:32px 30px;transition:.35s;position:relative}
+.hon-card:hover{border-color:rgba(217,181,106,.5);background:rgba(217,181,106,.05);transform:translateY(-4px)}
+.hon-card .yr{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;color:var(--gold-2);border:1px solid rgba(217,181,106,.4);border-radius:999px;padding:5px 12px;margin-bottom:18px}
+.hon-card h3{font-size:1.25rem;margin-bottom:10px;line-height:1.25}
+.hon-card p{color:rgba(255,255,255,.65);font-size:.94rem}
+.hon-card.feat{grid-row:span 2;background:linear-gradient(160deg,rgba(217,181,106,.16),rgba(217,181,106,.02) 60%);border-color:rgba(217,181,106,.35);display:flex;flex-direction:column;justify-content:flex-end;min-height:360px}
+.hon-card.feat .big{font-family:var(--serif);font-size:5.5rem;line-height:1;color:var(--gold-2);font-weight:600;margin-bottom:auto}
+.hon-card.feat .big small{font-size:1rem;letter-spacing:.2em;text-transform:uppercase;display:block;color:rgba(255,255,255,.55);font-family:var(--sans);font-weight:500;margin-top:6px}
+.hon-card.feat h3{font-size:1.7rem}
+.medal{width:44px;height:44px;color:var(--gold-2);margin-bottom:18px}
+
 /* VIDEO TESTIMONIALS */
 .vt{background:var(--ink-2);color:#fff;overflow:hidden}
 .vt-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:54px}
@@ -255,12 +274,15 @@ footer a:hover{color:var(--gold-2)}
   .cover .t{font-size:1.2rem}.cover .t span{font-size:.8rem;margin-top:4px}
   .cover .rule{margin:10px 0 8px}
   .cover .a{font-size:.55rem;letter-spacing:.12em;white-space:nowrap}
-  .book-badge{width:58px;height:58px;right:-30px;top:-30px}
+  .book-badge{width:78px;height:78px;right:-34px;top:-36px;font-size:.5rem}
+  .book-badge b{font-size:.82rem}
   .strip .wrap{grid-template-columns:1fr 1fr}
   .cred-grid,.props-grid,.vt-row{grid-template-columns:1fr}
   .avia .wrap{grid-template-columns:1fr;gap:48px}
   .avia-collage{height:460px}
   .vt-feature{grid-template-columns:1fr}
+  .hon-grid{grid-template-columns:1fr 1fr}
+  .hon-card.feat{grid-row:auto;grid-column:span 2;min-height:0}
   .vt-quote{padding:30px 26px}
   .vt-quote blockquote{font-size:1.3rem}
   .logos{grid-template-columns:repeat(3,1fr)}
@@ -272,6 +294,10 @@ footer a:hover{color:var(--gold-2)}
   .strip b{font-size:1.9rem}
   .honor-imgs{grid-template-rows:150px 150px}
   .avia-collage{height:380px}
+  .hon-grid{grid-template-columns:1fr}
+  .hon-card.feat{grid-column:auto}
+  .hon-card.feat .big{font-size:4rem;margin-bottom:20px}
+  .hon-card{padding:26px 22px}
   .avia-tag{padding:12px 14px;left:0}.avia-tag b{font-size:.95rem}
   .wa-box{padding:24px 20px}.wa-box .btn{width:100%;justify-content:center}
   .wa-float{width:52px;height:52px;right:16px;bottom:16px}
@@ -308,14 +334,14 @@ footer a:hover{color:var(--gold-2)}
         <div><small>Autor do livro</small><strong>Crimes Eleitorais — Corrupção Eleitoral</strong></div>
       </div>
       <div class="ctas">
-        <a href="mailto:assessoriadrpaulocesar@gmail.com?subject=Livro%20Crimes%20Eleitorais" class="btn btn-gold">Quero o livro →</a>
+        <a class="btn btn-gold js-wa" data-msg="Olá! Tenho interesse no livro Crimes Eleitorais — Corrupção Eleitoral (edição 2026)." href="#" target="_blank" rel="noopener">Quero o livro →</a>
         <a href="#propostas" class="btn btn-line">Conheça as propostas</a>
       </div>
     </div>
     <div class="stage rv">
       <img class="person" src="img/pc-hero.png" alt="Dr. Paulo César, O PC">
-      <a class="book-wrap" href="mailto:assessoriadrpaulocesar@gmail.com?subject=Livro%20Crimes%20Eleitorais" aria-label="Livro Crimes Eleitorais — Corrupção Eleitoral">
-        <span class="book-badge"><span><b>Livro</b>do autor</span></span>
+      <a class="book-wrap js-wa" data-msg="Olá! Tenho interesse no livro Crimes Eleitorais — Corrupção Eleitoral (edição 2026)." href="#" target="_blank" rel="noopener" aria-label="Livro Crimes Eleitorais — Corrupção Eleitoral">
+        <span class="book-badge"><span><b>Em breve</b>Edição 2026<br>corrigida</span></span>
         <div class="book">
           <div class="pages"></div>
           <div class="cover">
@@ -368,6 +394,43 @@ footer a:hover{color:var(--gold-2)}
           Quero saber mais
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="hon" id="reconhecimentos">
+  <div class="wrap">
+    <div class="hon-head rv">
+      <span class="eyebrow">Honrarias</span>
+      <h2>Reconhecimentos &amp; Honrarias</h2>
+      <p class="lead">Uma trajetória reconhecida por instituições, autoridades e órgãos públicos do Estado de São Paulo.</p>
+    </div>
+    <div class="hon-grid">
+      <article class="hon-card feat rv">
+        <div class="big">2×<small>Comendador</small></div>
+        <h3>Comendador do Estado de São Paulo</h3>
+        <p>Duas vezes homenageado como Comendador do Estado de São Paulo, como mérito em honra pela Justiça.</p>
+      </article>
+      <article class="hon-card rv">
+        <span class="yr">2010 · 2013</span>
+        <h3>Destaque da revista São Paulo</h3>
+        <p>Homenageado como destaque pela revista São Paulo, ao lado de várias autoridades importantes do Governo.</p>
+      </article>
+      <article class="hon-card rv">
+        <span class="yr">2008 · 2009</span>
+        <h3>Diploma de Mérito</h3>
+        <p>Concedido pela Secretaria de Segurança Pública, em conjunto com a Polícia Militar do Estado de São Paulo.</p>
+      </article>
+      <article class="hon-card rv">
+        <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.2 1.6 2.7-.1.8 2.6 2.2 1.6-.9 2.6.9 2.6-2.2 1.6-.8 2.6-2.7-.1L12 21l-2.2-1.6-2.7.1-.8-2.6-2.2-1.6.9-2.6-.9-2.6 2.2-1.6.8-2.6 2.7.1z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Corregedoria da Polícia Civil</h3>
+        <p>Convidado a participar de correições e audiências públicas com a Corregedoria da Polícia Civil do Estado de São Paulo, em departamentos e delegacias.</p>
+      </article>
+      <article class="hon-card rv">
+        <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-3 5 3-1.5-8"/></svg>
+        <h3>Entidades e órgãos públicos</h3>
+        <p>Homenageado por Polícia Militar, Polícia Civil, Fórum Sul e Unidades Básicas de Saúde, entre outras entidades.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -555,7 +618,11 @@ footer a:hover{color:var(--gold-2)}
     <div class="channels rv">
       <a class="channel js-wa" data-msg="Olá! Vim pelo site do Dr. PC." href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
-        <div><small>WhatsApp</small><span>(11) 97110-9006</span></div>
+        <div><small>WhatsApp</small><span>(11) 99604-1466</span></div>
+      </a>
+      <a class="channel" href="tel:+5511971109006">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>
+        <div><small>Telefone</small><span>(11) 97110-9006</span></div>
       </a>
       <a class="channel" href="mailto:assessoriadrpaulocesar@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
@@ -631,7 +698,7 @@ addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
   if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
 
 // WhatsApp — troque o número aqui (DDI + DDD + número, só dígitos)
-const WHATSAPP='5511971109006';
+const WHATSAPP='5511996041466';
 document.querySelectorAll('.js-wa').forEach(a=>{a.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(a.dataset.msg||'Olá! Vim pelo site do Dr. PC.')}`});
 
 const vids=[
