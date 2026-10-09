@@ -197,6 +197,10 @@ section{padding:120px 0;scroll-margin-top:40px}
 .hon-card.feat .big small{font-size:1rem;letter-spacing:.2em;text-transform:uppercase;display:block;color:rgba(255,255,255,.55);font-family:var(--sans);font-weight:500;margin-top:6px}
 .hon-card.feat h3{font-size:1.7rem}
 .medal{width:44px;height:44px;color:var(--gold-2);margin-bottom:18px}
+.hon-card.wide{grid-column:1/-1;display:flex;align-items:center;gap:26px;padding:28px 32px}
+.hon-card.wide .medal{margin:0;flex:none;width:52px;height:52px}
+.hon-card.wide .yr{margin:0 0 8px}
+.hon-card.wide h3{margin-bottom:6px}
 
 /* VIDEO TESTIMONIALS */
 .vt{background:var(--ink-2);color:#fff;overflow:hidden}
@@ -298,6 +302,7 @@ footer a:hover{color:var(--gold-2)}
   .hon-card.feat{grid-column:auto}
   .hon-card.feat .big{font-size:4rem;margin-bottom:20px}
   .hon-card{padding:26px 22px}
+  .hon-card.wide{flex-direction:column;align-items:flex-start;gap:16px;padding:26px 22px}
   .avia-tag{padding:12px 14px;left:0}.avia-tag b{font-size:.95rem}
   .wa-box{padding:24px 20px}.wa-box .btn{width:100%;justify-content:center}
   .wa-float{width:52px;height:52px;right:16px;bottom:16px}
@@ -430,6 +435,14 @@ footer a:hover{color:var(--gold-2)}
         <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-3 5 3-1.5-8"/></svg>
         <h3>Entidades e órgãos públicos</h3>
         <p>Homenageado por Polícia Militar, Polícia Civil, Fórum Sul e Unidades Básicas de Saúde, entre outras entidades.</p>
+      </article>
+      <article class="hon-card wide rv">
+        <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z"/></svg>
+        <div>
+          <span class="yr">Trajetória pública</span>
+          <h3>Chefe de Gabinete na Assembleia Legislativa de São Paulo</h3>
+          <p>Foi funcionário da Assembleia Legislativa do Estado de São Paulo (Alesp), onde atuou como Chefe de Gabinete.</p>
+        </div>
       </article>
     </div>
   </div>
