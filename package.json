@@ -1,0 +1,11 @@
+{
+  "name": "site-dr-paulo-cesar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

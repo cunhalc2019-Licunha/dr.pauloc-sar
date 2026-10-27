@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel do Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1b2e;--ink-2:#1b2c45;--paper:#faf8f4;--paper-2:#f1ede5;--gold:#b8913f;--gold-2:#d9b56a;--muted:#5d6878;--line:#e3ddd1;--ok:#1f8a4c;--err:#c0392b;--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--paper-2);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+.hidden{display:none!important}
+
+/* login */
+.login{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 70% 20%,rgba(184,145,63,.25),transparent 60%),var(--ink)}
+.login form{width:100%;max-width:380px;background:var(--paper);border-radius:20px;padding:38px 32px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.login h1{font-family:var(--serif);font-size:1.7rem;margin-bottom:6px}
+.login p{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+label.f{display:block;font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:6px}
+.in{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:12px 14px;outline:none;transition:.2s}
+.in:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,145,63,.18)}
+textarea.in{min-height:110px;resize:vertical}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;transition:.2s;font-size:.92rem}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--ink)}
+.btn-gold:disabled{opacity:.5;cursor:default;background:var(--gold)}
+.btn-line{background:transparent;border:1px solid var(--line);color:var(--ink)}.btn-line:hover{border-color:var(--ink)}
+.btn-sm{padding:8px 14px;font-size:.82rem}
+.msg{margin-top:14px;font-size:.88rem;min-height:1.2em}
+.msg.err{color:var(--err)}
+.login .btn{width:100%;margin-top:18px}
+
+/* app */
+.top{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px}
+.top b{font-family:var(--serif);font-size:1.15rem;font-weight:600}
+.top small{color:rgba(255,255,255,.55);display:block;font-size:.75rem}
+.top .acts{display:flex;gap:10px;align-items:center}
+.top .btn-line{border-color:rgba(255,255,255,.25);color:#fff;text-decoration:none}.top .btn-line:hover{border-color:#fff}
+.layout{display:grid;grid-template-columns:250px 1fr;max-width:1200px;margin:0 auto;gap:28px;padding:28px 24px 120px}
+.side{position:sticky;top:86px;align-self:start;display:flex;flex-direction:column;gap:4px}
+.side .search{margin-bottom:12px}
+.side a{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:.9rem;font-weight:500}
+.side a:hover{background:#fff}
+.side a.on{background:var(--ink);color:#fff}
+.side a .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:none}
+.side a.dirty .dot{display:block}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:14px 16px;font-size:.85rem;color:var(--muted);margin-bottom:22px}
+.sec h2{font-family:var(--serif);font-size:1.6rem;margin-bottom:4px}
+.sec .sub{color:var(--muted);font-size:.88rem;margin-bottom:18px}
+.fields{display:grid;gap:14px}
+.fld{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.fld.changed{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,145,63,.12)}
+.fld.bad{border-color:var(--err)}
+.fld .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.fld .tag{font-size:.7rem;font-weight:600;color:var(--gold);background:rgba(184,145,63,.12);border-radius:999px;padding:3px 9px;display:none}
+.fld.changed .tag{display:inline-block}
+.fld .hint{font-size:.8rem;color:var(--muted);margin-top:6px}
+.fld .err{font-size:.8rem;color:var(--err);margin-top:6px}
+.imgbox{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.imgbox .pv{width:170px;height:120px;border-radius:10px;background:var(--paper-2) center/contain no-repeat;border:1px solid var(--line);flex:none}
+.imgbox .pv.yt{background-size:cover}
+.imgbox .side2{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.imgbox .path{font-size:.75rem;color:var(--muted);word-break:break-all}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -15px rgba(13,27,46,.3);transform:translateY(110%);transition:.3s}
+.bar.show{transform:none}
+.bar .wrap{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bar .count{font-weight:600}
+.bar .acts{display:flex;gap:10px}
+.toast{position:fixed;left:50%;top:20px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;padding:14px 22px;border-radius:12px;font-size:.92rem;box-shadow:0 20px 40px -15px rgba(0,0,0,.5);max-width:calc(100% - 32px)}
+.toast.ok{background:var(--ok)}.toast.err{background:var(--err)}
+.setup{max-width:640px;margin:80px auto;background:#fff;border-radius:16px;padding:32px;border:1px solid var(--line)}
+.setup h1{font-family:var(--serif);margin-bottom:10px}
+.setup code{background:var(--paper-2);padding:2px 6px;border-radius:6px}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;padding:18px 16px 140px}
+  .side{position:static;flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:6px}
+  .side .search{display:none}
+  .side a{white-space:nowrap;flex:none}
+  .top{padding:12px 16px}.top small{display:none}
+  .imgbox .pv{width:100%;height:180px}
+  .bar .wrap{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="login hidden" id="login">
+  <form id="loginForm">
+    <h1>Painel do site</h1>
+    <p>Dr. Paulo César, O PC — área restrita para editar textos e fotos.</p>
+    <label class="f" for="pw">Senha de administrador</label>
+    <input class="in" id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn btn-gold" type="submit">Entrar</button>
+    <div class="msg err" id="loginMsg"></div>
+  </form>
+</div>
+
+<div class="setup hidden" id="setup">
+  <h1>Painel ainda não configurado</h1>
+  <p>Para ativar o login, defina na Vercel (Settings → Environment Variables) as variáveis <code>ADMIN_PASSWORD</code> e <code>GITHUB_TOKEN</code> e faça um novo deploy.</p>
+</div>
+
+<div class="hidden" id="app">
+  <header class="top">
+    <div><b>Painel do site</b><small>Edite textos e fotos — a estrutura dos blocos não muda.</small></div>
+    <div class="acts">
+      <a class="btn btn-line btn-sm" href="/" target="_blank" rel="noopener">Ver site ↗</a>
+      <button class="btn btn-line btn-sm" id="logout">Sair</button>
+    </div>
+  </header>
+  <div class="layout">
+    <nav class="side" id="side"><input class="in search" id="search" placeholder="Buscar campo…" aria-label="Buscar campo"></nav>
+    <main id="main">
+      <div class="note">Altere os campos que quiser e clique em <b>Salvar e publicar</b>. O site é atualizado em cerca de 1 minuto. Fotos são reduzidas automaticamente antes do envio.</div>
+      <div id="sections"></div>
+    </main>
+  </div>
+  <div class="bar" id="bar">
+    <div class="wrap">
+      <span class="count" id="count"></span>
+      <div class="acts">
+        <button class="btn btn-line" id="discard">Descartar</button>
+        <button class="btn btn-gold" id="save">Salvar e publicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const api = async (path, body) => {
+  const r = await fetch('/api/' + path, body === undefined ? { cache: 'no-store' } : {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), cache: 'no-store'
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) { const e = new Error(data.error || 'Erro ' + r.status); e.status = r.status; e.data = data; throw e; }
+  return data;
+};
+function toast(text, kind = '') {
+  const t = document.createElement('div'); t.className = 'toast ' + kind; t.textContent = text;
+  document.body.appendChild(t); setTimeout(() => t.remove(), kind === 'err' ? 7000 : 4500);
+}
+
+let original = {}, changes = {}, pending = {}; // pending: caminho da foto -> sha (enviada, ainda não salva)
+const imgUrl = (v) => /^https?:/.test(v) ? v : '/' + v;
+const ytId = (v) => (v.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/) || v.trim().match(/^([\w-]{11})$/) || [])[1];
+const norm = (t) => t.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+
+async function boot() {
+  const s = await api('session').catch(() => ({ configured: false }));
+  if (!s.configured) return $('#setup').classList.remove('hidden');
+  if (!s.authed) return showLogin();
+  await openApp();
+}
+function showLogin() { $('#login').classList.remove('hidden'); $('#pw').focus(); }
+
+$('#loginForm').onsubmit = async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button'); btn.disabled = true; $('#loginMsg').textContent = '';
+  try {
+    await api('login', { password: $('#pw').value });
+    $('#login').classList.add('hidden');
+    if (!$('#sections').children.length) await openApp();
+  } catch (err) { $('#loginMsg').textContent = err.message; }
+  finally { btn.disabled = false; $('#pw').value = ''; }
+};
+
+$('#logout').onclick = async () => {
+  if (Object.keys(changes).length && !confirm('Há alterações não salvas. Sair mesmo assim?')) return;
+  changes = {};
+  await api('logout', {}).catch(() => {}); location.reload();
+};
+
+async function openApp() {
+  const schema = await fetch('/admin/schema.json?t=' + Date.now(), { cache: 'no-store' }).then((r) => r.json());
+  $('#app').classList.remove('hidden');
+  const side = $('#side'), wrap = $('#sections');
+  schema.sections.forEach((sec, si) => {
+    const id = 'sec' + si;
+    const a = document.createElement('a'); a.href = '#' + id; a.dataset.sec = id;
+    a.innerHTML = '<span></span><i class="dot"></i>'; a.firstChild.textContent = sec.name; side.appendChild(a);
+    const el = document.createElement('section'); el.className = 'sec'; el.id = id; el.style.scrollMarginTop = '90px';
+    if (si) el.style.marginTop = '42px';
+    el.innerHTML = '<h2></h2><p class="sub"></p><div class="fields"></div>';
+    el.querySelector('h2').textContent = sec.name;
+    el.querySelector('.sub').textContent = sec.fields.length + ' campo(s)';
+    sec.fields.forEach((f) => { original[f.key] = f.value; el.querySelector('.fields').appendChild(fieldEl(f, id)); });
+    wrap.appendChild(el);
+  });
+  const links = [...side.querySelectorAll('a')];
+  const io = new IntersectionObserver((es) => es.forEach((x) => {
+    if (x.isIntersecting) links.forEach((l) => l.classList.toggle('on', l.dataset.sec === x.target.id));
+  }), { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('.sec').forEach((s) => io.observe(s));
+  $('#search').oninput = (e) => {
+    const q = norm(e.target.value);
+    document.querySelectorAll('.fld').forEach((f) => f.classList.toggle('hidden', !!q && !f.dataset.search.includes(q)));
+  };
+}
+
+function fieldEl(f, secId) {
+  const box = document.createElement('div'); box.className = 'fld'; box.dataset.key = f.key; box.dataset.sec = secId;
+  box.dataset.search = norm(f.label + ' ' + (f.value || ''));
+  box.innerHTML = '<div class="hd"><label class="f"></label><span class="tag">alterado</span></div><div class="body"></div><div class="err hidden"></div>';
+  const label = box.querySelector('label'); label.textContent = f.label;
+  const body = box.querySelector('.body');
+  const id = 'f_' + f.key.replace(/\W/g, '_');
+
+  if (f.type === 'image') {
+    body.innerHTML = '<div class="imgbox"><div class="pv"></div><div class="side2"><div><label class="btn btn-line btn-sm" style="cursor:pointer">Trocar foto<input type="file" accept="image/jpeg,image/png,image/webp" hidden></label> <button class="btn btn-line btn-sm undo hidden" type="button">Desfazer</button></div><span class="path"></span></div></div>';
+    const pv = body.querySelector('.pv'), path = body.querySelector('.path'), undo = body.querySelector('.undo');
+    const show = (src, text) => { pv.style.backgroundImage = `url("${src}")`; path.textContent = text; };
+    show(imgUrl(f.value), f.value);
+    body.querySelector('input').onchange = async (e) => {
+      const file = e.target.files[0]; e.target.value = ''; if (!file) return;
+      const pick = body.querySelector('label'); pick.style.opacity = .5; path.textContent = 'Enviando foto…';
+      try {
+        const blob = await shrink(file);
+        const data = await new Promise((ok) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.readAsDataURL(blob); });
+        const up = await api('upload', { data });
+        pending[up.path] = up.sha;
+        show(URL.createObjectURL(blob), 'Nova foto (' + Math.round(blob.size / 1024) + ' KB) — entra no site ao salvar');
+        setChange(f.key, up.path, box);
+        undo.classList.remove('hidden');
+      } catch (err) {
+        toast(err.message, 'err'); path.textContent = f.value;
+        if (err.status === 401) showLogin();
+      } finally { pick.style.opacity = 1; }
+    };
+    undo.onclick = () => { show(imgUrl(original[f.key]), original[f.key]); setChange(f.key, original[f.key], box); undo.classList.add('hidden'); };
+  } else if (f.type === 'youtube') {
+    body.innerHTML = '<div class="imgbox"><div class="pv yt"></div><div class="side2"><input class="in" placeholder="Cole o link do vídeo do YouTube"></div></div>';
+    const inp = body.querySelector('input'), pv = body.querySelector('.pv'); inp.id = id; label.htmlFor = id;
+    inp.value = 'https://www.youtube.com/watch?v=' + f.value;
+    pv.style.backgroundImage = `url(https://img.youtube.com/vi/${f.value}/hqdefault.jpg)`;
+    inp.oninput = () => {
+      const v = ytId(inp.value);
+      pv.style.backgroundImage = v ? `url(https://img.youtube.com/vi/${v}/hqdefault.jpg)` : 'none';
+      setChange(f.key, v || inp.value, box, v ? '' : 'Link do YouTube não reconhecido');
+    };
+  } else {
+    const multi = f.multiline || (f.value || '').length > 90;
+    const inp = document.createElement(multi ? 'textarea' : 'input');
+    inp.className = 'in'; inp.id = id; label.htmlFor = id; inp.value = f.value || '';
+    if (f.type === 'email') inp.type = 'email';
+    if (f.type === 'phone' || f.type === 'whatsapp') { inp.type = 'tel'; inp.placeholder = '(11) 99999-9999'; }
+    inp.oninput = () => setChange(f.key, inp.value, box, check(f.type, inp.value));
+    body.appendChild(inp);
+  }
+  if (f.hint) { const h = document.createElement('div'); h.className = 'hint'; h.textContent = f.hint; body.appendChild(h); }
+  return box;
+}
+
+function check(type, v) {
+  v = v.trim();
+  if (!v) return 'Este campo não pode ficar vazio';
+  if (type === 'email' && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v)) return 'E-mail inválido';
+  if (type === 'phone' || type === 'whatsapp') { let d = v.replace(/\D/g, ''); if (d.length > 11 && d.startsWith('55')) d = d.slice(2); if (d.length < 10 || d.length > 11) return 'Use DDD + número, ex.: (11) 99999-9999'; }
+  return '';
+}
+
+function setChange(key, value, box, problem = '') {
+  if (value === original[key]) delete changes[key]; else changes[key] = value;
+  box.classList.toggle('changed', key in changes);
+  const err = box.querySelector('.err'); err.textContent = problem; err.classList.toggle('hidden', !problem);
+  box.classList.toggle('bad', !!problem);
+  refreshBar();
+}
+
+function refreshBar() {
+  const n = Object.keys(changes).length;
+  $('#bar').classList.toggle('show', n > 0);
+  $('#count').textContent = n === 1 ? '1 alteração não salva' : n + ' alterações não salvas';
+  $('#save').disabled = !!document.querySelector('.fld.bad');
+  document.querySelectorAll('#side a').forEach((a) => a.classList.toggle('dirty', !!document.querySelector(`.fld.changed[data-sec="${a.dataset.sec}"]`)));
+}
+
+$('#discard').onclick = () => { if (confirm('Descartar todas as alterações não salvas?')) { changes = {}; location.reload(); } };
+
+$('#save').onclick = async () => {
+  const btn = $('#save'); btn.disabled = true; btn.textContent = 'Salvando…';
+  const images = Object.values(changes).filter((v) => pending[v]).map((p) => ({ path: p, sha: pending[p] }));
+  try {
+    await api('save', { values: changes, images });
+    Object.assign(original, changes); changes = {};
+    document.querySelectorAll('.fld.changed').forEach((b) => b.classList.remove('changed'));
+    document.querySelectorAll('.undo').forEach((b) => b.classList.add('hidden'));
+    refreshBar();
+    toast('Salvo! O site será atualizado em cerca de 1 minuto.', 'ok');
+  } catch (err) {
+    if (err.status === 401) { toast('Sua sessão expirou. Entre de novo — suas alterações continuam na tela.', 'err'); showLogin(); }
+    else toast(err.message + (err.data?.fields ? ' — ' + err.data.fields.join('; ') : ''), 'err');
+  } finally { btn.textContent = 'Salvar e publicar'; refreshBar(); }
+};
+
+addEventListener('beforeunload', (e) => { if (Object.keys(changes).length) { e.preventDefault(); e.returnValue = ''; } });
+
+// Reduz a foto no navegador: PNG continua PNG (mantém fundo transparente), o resto vira JPG.
+async function shrink(file) {
+  if (!/^image\/(jpeg|png|webp)$/.test(file.type)) throw new Error('Use uma foto JPG, PNG ou WEBP.');
+  const bmp = await createImageBitmap(file);
+  const png = file.type === 'image/png';
+  for (const max of png ? [1600, 1200, 900] : [2000, 1600, 1200]) {
+    const k = Math.min(1, max / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise((ok) => c.toBlob(ok, png ? 'image/png' : 'image/jpeg', 0.85));
+    if (blob && blob.size < 3.1 * 1024 * 1024) return blob;
+  }
+  throw new Error('Foto grande demais mesmo depois de reduzida. Tente outra.');
+}
+
+boot();
+</script>
+</body>
+</html>

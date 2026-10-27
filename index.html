@@ -74,7 +74,7 @@ section{padding:120px 0;scroll-margin-top:40px}
 .book .pages{position:absolute;top:5px;bottom:5px;right:-14px;width:16px;background:repeating-linear-gradient(90deg,#f4efe4 0 1px,#d9d2c3 1px 2px);transform:rotateY(90deg) translateZ(-1px);transform-origin:left;border-radius:0 2px 2px 0}
 .cover .k{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2)}
 .cover .t{font-family:var(--serif);font-size:1.95rem;line-height:1.02;font-weight:700;margin-top:auto}
-.cover .t span{display:block;color:var(--gold-2);font-style:italic;font-weight:400;font-size:1.05rem;margin-top:8px}
+.cover .t span:not(.tt){display:block;color:var(--gold-2);font-style:italic;font-weight:400;font-size:1.05rem;margin-top:8px}
 .cover .rule{width:40px;height:2px;background:var(--gold);margin:16px 0 12px}
 .cover .a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .book-badge{position:absolute;top:-44px;right:-44px;z-index:4;width:98px;height:98px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-size:.64rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.2;box-shadow:0 10px 25px -5px rgba(0,0,0,.5);transform:rotate(12deg)}
@@ -280,7 +280,7 @@ footer a:hover{color:var(--gold-2)}
   .book{width:140px;height:200px}
   .book .cover{padding:16px 12px 14px 18px}
   .cover .k{font-size:.48rem;letter-spacing:.2em}
-  .cover .t{font-size:1.2rem}.cover .t span{font-size:.8rem;margin-top:4px}
+  .cover .t{font-size:1.2rem}.cover .t span:not(.tt){font-size:.8rem;margin-top:4px}
   .cover .rule{margin:10px 0 8px}
   .cover .a{font-size:.55rem;letter-spacing:.12em;white-space:nowrap}
   .book-badge{width:78px;height:78px;right:-34px;top:-36px;font-size:.5rem}
@@ -315,7 +315,7 @@ footer a:hover{color:var(--gold-2)}
 }
 </style>
 </head>
-<body>
+<body data-wa="5511996041466">
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -333,31 +333,31 @@ footer a:hover{color:var(--gold-2)}
   </div>
 </header>
 
-<section class="hero" id="inicio">
+<section class="hero" id="inicio" data-cms-section="Abertura">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">A Galera do Dr. PC</span>
-      <h1>Dr. Paulo César,<br><em>O PC</em></h1>
-      <p>Do Jardim Campinas, na zona sul de São Paulo, para o Direito, o empreendedorismo e o trabalho social. Uma trajetória construída com estudo, esforço e compromisso com a comunidade.</p>
+      <span class="eyebrow" data-cms="hero.eyebrow" data-cms-label="Frase acima do nome">A Galera do Dr. PC</span>
+      <h1><span data-cms="hero.nome" data-cms-label="Nome (linha 1)">Dr. Paulo César,</span><br><em data-cms="hero.apelido" data-cms-label="Nome (linha 2, dourado)">O PC</em></h1>
+      <p data-cms="hero.texto" data-cms-label="Texto de apresentação">Do Jardim Campinas, na zona sul de São Paulo, para o Direito, o empreendedorismo e o trabalho social. Uma trajetória construída com estudo, esforço e compromisso com a comunidade.</p>
       <div class="book-line">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4.5A1.5 1.5 0 015.5 3H20v16H5.5A1.5 1.5 0 004 20.5z"/><path d="M4 20.5A1.5 1.5 0 005.5 22H20M8 7h8M8 11h6"/></svg>
-        <div><small>Autor do livro</small><strong>Crimes Eleitorais — Corrupção Eleitoral</strong></div>
+        <div><small data-cms="hero.livro.rotulo" data-cms-label="Faixa do livro: rótulo">Autor do livro</small><strong data-cms="hero.livro.titulo" data-cms-label="Faixa do livro: título">Crimes Eleitorais — Corrupção Eleitoral</strong></div>
       </div>
       <div class="ctas">
-        <a class="btn btn-gold js-wa" data-msg="Olá! Tenho interesse no livro Crimes Eleitorais — Corrupção Eleitoral (edição 2026)." href="#" target="_blank" rel="noopener">Quero o livro →</a>
+        <a class="btn btn-gold js-wa" data-msg="Olá! Tenho interesse no livro Crimes Eleitorais — Corrupção Eleitoral (edição 2026)." href="#" target="_blank" rel="noopener" data-cms="hero.botao" data-cms-label="Botão principal">Quero o livro →</a>
         <a href="#propostas" class="btn btn-line">Conheça as propostas</a>
       </div>
     </div>
     <div class="stage rv">
-      <img class="person" src="img/pc-hero.png" alt="Dr. Paulo César, O PC">
+      <img class="person" src="img/pc-hero.png" alt="Dr. Paulo César, O PC" data-cms="hero.foto" data-cms-label="Foto principal" data-cms-type="image" data-cms-hint="Use foto em PNG SEM FUNDO (recortada), de preferência vertical.">
       <a class="book-wrap js-wa" data-msg="Olá! Tenho interesse no livro Crimes Eleitorais — Corrupção Eleitoral (edição 2026)." href="#" target="_blank" rel="noopener" aria-label="Livro Crimes Eleitorais — Corrupção Eleitoral">
-        <span class="book-badge"><span><b>Em breve</b>Edição 2026<br>corrigida</span></span>
+        <span class="book-badge"><span><b data-cms="hero.selo.1" data-cms-label="Selo do livro: linha 1">Em breve</b><span data-cms="hero.selo.2" data-cms-label="Selo do livro: linha 2">Edição 2026</span><br><span data-cms="hero.selo.3" data-cms-label="Selo do livro: linha 3">corrigida</span></span></span>
         <div class="book">
           <div class="pages"></div>
           <div class="cover">
-            <span class="k">Direito Eleitoral</span>
-            <div class="t">Crimes Eleitorais<span>Corrupção Eleitoral</span></div>
-            <div><div class="rule"></div><span class="a">Dr. Paulo César</span></div>
+            <span class="k" data-cms="hero.capa.tema" data-cms-label="Capa do livro: tema">Direito Eleitoral</span>
+            <div class="t"><span class="tt" data-cms="hero.capa.titulo" data-cms-label="Capa do livro: título">Crimes Eleitorais</span><span data-cms="hero.capa.sub" data-cms-label="Capa do livro: subtítulo">Corrupção Eleitoral</span></div>
+            <div><div class="rule"></div><span class="a" data-cms="hero.capa.autor" data-cms-label="Capa do livro: autor">Dr. Paulo César</span></div>
           </div>
         </div>
       </a>
@@ -365,208 +365,208 @@ footer a:hover{color:var(--gold-2)}
   </div>
 </section>
 
-<section class="strip">
+<section class="strip" data-cms-section="Faixa de destaques">
   <div class="wrap">
-    <div class="item"><b>Doutor</b><span>em Direito pela PUC</span></div>
-    <div class="item"><b>Mestre</b><span>em Direito Ambiental</span></div>
-    <div class="item"><b>5×</b><span>Campeão Brasileiro de Jet Ski</span></div>
-    <div class="item"><b>3</b><span>idiomas: inglês, espanhol e japonês</span></div>
+    <div class="item"><b data-cms="faixa.1.destaque" data-cms-label="Destaque 1: número/palavra">Doutor</b><span data-cms="faixa.1.texto" data-cms-label="Destaque 1: texto">em Direito pela PUC</span></div>
+    <div class="item"><b data-cms="faixa.2.destaque" data-cms-label="Destaque 2: número/palavra">Mestre</b><span data-cms="faixa.2.texto" data-cms-label="Destaque 2: texto">em Direito Ambiental</span></div>
+    <div class="item"><b data-cms="faixa.3.destaque" data-cms-label="Destaque 3: número/palavra">5×</b><span data-cms="faixa.3.texto" data-cms-label="Destaque 3: texto">Campeão Brasileiro de Jet Ski</span></div>
+    <div class="item"><b data-cms="faixa.4.destaque" data-cms-label="Destaque 4: número/palavra">3</b><span data-cms="faixa.4.texto" data-cms-label="Destaque 4: texto">idiomas: inglês, espanhol e japonês</span></div>
   </div>
 </section>
 
-<section class="avia" id="aviacao">
+<section class="avia" id="aviacao" data-cms-section="Aviação">
   <div class="wrap">
     <div class="avia-collage rv">
-      <figure class="f1"><img src="img/aviacao-aviao.jpg" alt="Dr. Paulo César na cabine de um avião Cirrus" loading="lazy"><figcaption>Avião</figcaption></figure>
-      <figure class="f2"><img src="img/aviacao-helicoptero.jpg" alt="Dr. Paulo César pilotando helicóptero" loading="lazy"><figcaption>Helicóptero</figcaption></figure>
-      <figure class="f3"><img src="img/aviacao-cabine.jpg" alt="Vista da cabine durante decolagem" loading="lazy"><figcaption>Na cabine</figcaption></figure>
+      <figure class="f1"><img src="img/aviacao-aviao.jpg" alt="Dr. Paulo César na cabine de um avião Cirrus" loading="lazy" data-cms="aviacao.foto1" data-cms-label="Foto 1" data-cms-type="image"><figcaption data-cms="aviacao.legenda1" data-cms-label="Legenda da foto 1">Avião</figcaption></figure>
+      <figure class="f2"><img src="img/aviacao-helicoptero.jpg" alt="Dr. Paulo César pilotando helicóptero" loading="lazy" data-cms="aviacao.foto2" data-cms-label="Foto 2" data-cms-type="image"><figcaption data-cms="aviacao.legenda2" data-cms-label="Legenda da foto 2">Helicóptero</figcaption></figure>
+      <figure class="f3"><img src="img/aviacao-cabine.jpg" alt="Vista da cabine durante decolagem" loading="lazy" data-cms="aviacao.foto3" data-cms-label="Foto 3" data-cms-type="image"><figcaption data-cms="aviacao.legenda3" data-cms-label="Legenda da foto 3">Na cabine</figcaption></figure>
       <div class="avia-tag">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.5 21l1.5-1 1.5 1v-2.5L12 17V12l8 3v-2l-8-5V3.5a1.5 1.5 0 00-3 0V8l-8 5v2l8-3v5l-1.5 1.5z" transform="translate(1.5 0)"/></svg>
-        <div><small>Piloto</small><b>Avião & Helicóptero</b></div>
+        <div><small data-cms="aviacao.selo.1" data-cms-label="Selo: linha pequena">Piloto</small><b data-cms="aviacao.selo.2" data-cms-label="Selo: linha grande">Avião & Helicóptero</b></div>
       </div>
     </div>
     <div class="rv">
-      <span class="eyebrow">Aviação</span>
-      <h2>Uma paixão que ganhou os céus</h2>
-      <p>Além do Direito, o Dr. Paulo César é piloto de avião e de helicóptero, com pós-graduação em Engenharia Aeronáutica. A aviação faz parte da sua história e é uma das suas grandes paixões.</p>
+      <span class="eyebrow" data-cms="aviacao.eyebrow" data-cms-label="Rótulo">Aviação</span>
+      <h2 data-cms="aviacao.titulo" data-cms-label="Título">Uma paixão que ganhou os céus</h2>
+      <p data-cms="aviacao.texto" data-cms-label="Texto">Além do Direito, o Dr. Paulo César é piloto de avião e de helicóptero, com pós-graduação em Engenharia Aeronáutica. A aviação faz parte da sua história e é uma das suas grandes paixões.</p>
       <div class="chips">
-        <span>Piloto de avião</span>
-        <span>Piloto de helicóptero</span>
-        <span>Pós em Engenharia Aeronáutica</span>
+        <span data-cms="aviacao.item1" data-cms-label="Destaque 1">Piloto de avião</span>
+        <span data-cms="aviacao.item2" data-cms-label="Destaque 2">Piloto de helicóptero</span>
+        <span data-cms="aviacao.item3" data-cms-label="Destaque 3">Pós em Engenharia Aeronáutica</span>
       </div>
       <div class="wa-box">
         <div>
-          <h3>Tem interesse em aviação?</h3>
-          <p>Quer mais informações? Fale direto com a equipe pelo WhatsApp.</p>
+          <h3 data-cms="aviacao.caixa.titulo" data-cms-label="Caixa WhatsApp: título">Tem interesse em aviação?</h3>
+          <p data-cms="aviacao.caixa.texto" data-cms-label="Caixa WhatsApp: texto">Quer mais informações? Fale direto com a equipe pelo WhatsApp.</p>
         </div>
         <a class="btn btn-wa js-wa" data-msg="Olá! Tenho interesse em aviação e gostaria de mais informações." href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
-          Quero saber mais
+          <span data-cms="aviacao.caixa.botao" data-cms-label="Caixa WhatsApp: botão">Quero saber mais</span>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="hon" id="reconhecimentos">
+<section class="hon" id="reconhecimentos" data-cms-section="Reconhecimentos">
   <div class="wrap">
     <div class="hon-head rv">
-      <span class="eyebrow">Honrarias</span>
-      <h2>Reconhecimentos &amp; Honrarias</h2>
-      <p class="lead">Uma trajetória reconhecida por instituições, autoridades e órgãos públicos do Estado de São Paulo.</p>
+      <span class="eyebrow" data-cms="hon.eyebrow" data-cms-label="Rótulo">Honrarias</span>
+      <h2 data-cms="hon.titulo" data-cms-label="Título">Reconhecimentos &amp; Honrarias</h2>
+      <p class="lead" data-cms="hon.texto" data-cms-label="Texto">Uma trajetória reconhecida por instituições, autoridades e órgãos públicos do Estado de São Paulo.</p>
     </div>
     <div class="hon-grid">
       <article class="hon-card feat rv">
-        <div class="big">2×<small>Comendador</small></div>
-        <h3>Comendador do Estado de São Paulo</h3>
-        <p>Duas vezes homenageado como Comendador do Estado de São Paulo, como mérito em honra pela Justiça.</p>
+        <div class="big"><span data-cms="hon.c1.numero" data-cms-label="Cartão 1: número grande">2×</span><small data-cms="hon.c1.rotulo" data-cms-label="Cartão 1: rótulo">Comendador</small></div>
+        <h3 data-cms="hon.c1.titulo" data-cms-label="Cartão 1: título">Comendador do Estado de São Paulo</h3>
+        <p data-cms="hon.c1.texto" data-cms-label="Cartão 1: texto">Duas vezes homenageado como Comendador do Estado de São Paulo, como mérito em honra pela Justiça.</p>
       </article>
       <article class="hon-card rv">
-        <span class="yr">2010 · 2013</span>
-        <h3>Destaque da revista São Paulo</h3>
-        <p>Homenageado como destaque pela revista São Paulo, ao lado de várias autoridades importantes do Governo.</p>
+        <span class="yr" data-cms="hon.c2.ano" data-cms-label="Cartão 2: selo/ano">2010 · 2013</span>
+        <h3 data-cms="hon.c2.titulo" data-cms-label="Cartão 2: título">Destaque da revista São Paulo</h3>
+        <p data-cms="hon.c2.texto" data-cms-label="Cartão 2: texto">Homenageado como destaque pela revista São Paulo, ao lado de várias autoridades importantes do Governo.</p>
       </article>
       <article class="hon-card rv">
-        <span class="yr">2008 · 2009</span>
-        <h3>Diploma de Mérito</h3>
-        <p>Concedido pela Secretaria de Segurança Pública, em conjunto com a Polícia Militar do Estado de São Paulo.</p>
+        <span class="yr" data-cms="hon.c3.ano" data-cms-label="Cartão 3: selo/ano">2008 · 2009</span>
+        <h3 data-cms="hon.c3.titulo" data-cms-label="Cartão 3: título">Diploma de Mérito</h3>
+        <p data-cms="hon.c3.texto" data-cms-label="Cartão 3: texto">Concedido pela Secretaria de Segurança Pública, em conjunto com a Polícia Militar do Estado de São Paulo.</p>
       </article>
       <article class="hon-card rv">
         <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.2 1.6 2.7-.1.8 2.6 2.2 1.6-.9 2.6.9 2.6-2.2 1.6-.8 2.6-2.7-.1L12 21l-2.2-1.6-2.7.1-.8-2.6-2.2-1.6.9-2.6-.9-2.6 2.2-1.6.8-2.6 2.7.1z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>Corregedoria da Polícia Civil</h3>
-        <p>Convidado a participar de correições e audiências públicas com a Corregedoria da Polícia Civil do Estado de São Paulo, em departamentos e delegacias.</p>
+        <h3 data-cms="hon.c4.titulo" data-cms-label="Cartão 4: título">Corregedoria da Polícia Civil</h3>
+        <p data-cms="hon.c4.texto" data-cms-label="Cartão 4: texto">Convidado a participar de correições e audiências públicas com a Corregedoria da Polícia Civil do Estado de São Paulo, em departamentos e delegacias.</p>
       </article>
       <article class="hon-card rv">
         <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-3 5 3-1.5-8"/></svg>
-        <h3>Entidades e órgãos públicos</h3>
-        <p>Homenageado por Polícia Militar, Polícia Civil, Fórum Sul e Unidades Básicas de Saúde, entre outras entidades.</p>
+        <h3 data-cms="hon.c5.titulo" data-cms-label="Cartão 5: título">Entidades e órgãos públicos</h3>
+        <p data-cms="hon.c5.texto" data-cms-label="Cartão 5: texto">Homenageado por Polícia Militar, Polícia Civil, Fórum Sul e Unidades Básicas de Saúde, entre outras entidades.</p>
       </article>
       <article class="hon-card wide rv">
         <svg class="medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z"/></svg>
         <div>
-          <span class="yr">Trajetória pública</span>
-          <h3>Chefe de Gabinete na Assembleia Legislativa de São Paulo</h3>
-          <p>Foi funcionário da Assembleia Legislativa do Estado de São Paulo (Alesp), onde atuou como Chefe de Gabinete.</p>
+          <span class="yr" data-cms="hon.c6.ano" data-cms-label="Cartão 6: selo/ano">Trajetória pública</span>
+          <h3 data-cms="hon.c6.titulo" data-cms-label="Cartão 6: título">Chefe de Gabinete na Assembleia Legislativa de São Paulo</h3>
+          <p data-cms="hon.c6.texto" data-cms-label="Cartão 6: texto">Foi funcionário da Assembleia Legislativa do Estado de São Paulo (Alesp), onde atuou como Chefe de Gabinete.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="story" id="historia">
+<section class="story" id="historia" data-cms-section="Minha história">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Minha história</span>
-      <h2>De família humilde a referência na zona sul</h2>
-      <p>Oriundo de família humilde, Paulo César nasceu e cresceu no bairro do Jardim Campinas, zona sul de São Paulo, onde passou por muitas dificuldades e superou barreiras — sempre na certeza de que teria um futuro melhor. Ainda criança, começou a trabalhar cedo para ajudar a mãe, recolhendo latinhas de alumínio para vender, mas sempre almejando algo mais.</p>
-      <p>Concluiu o ensino médio na rede pública e ingressou na Universidade Ibirapuera, onde realizou o sonho de cursar Direito. Em seguida, pós-graduou-se pela Universidade Damásio de Jesus.</p>
-      <blockquote>Através de seus projetos, faz aquilo que nunca teve quando era criança.</blockquote>
-      <p>Hoje, conhecido como “PC”, transforma em realidade o que era sonho para muitos moradores da região, levando cultura, lazer, esporte, saúde, educação e inclusão social por meio de eventos e estruturas permanentes.</p>
+      <span class="eyebrow" data-cms="historia.eyebrow" data-cms-label="Rótulo">Minha história</span>
+      <h2 data-cms="historia.titulo" data-cms-label="Título">De família humilde a referência na zona sul</h2>
+      <p data-cms="historia.p1" data-cms-label="Parágrafo 1">Oriundo de família humilde, Paulo César nasceu e cresceu no bairro do Jardim Campinas, zona sul de São Paulo, onde passou por muitas dificuldades e superou barreiras — sempre na certeza de que teria um futuro melhor. Ainda criança, começou a trabalhar cedo para ajudar a mãe, recolhendo latinhas de alumínio para vender, mas sempre almejando algo mais.</p>
+      <p data-cms="historia.p2" data-cms-label="Parágrafo 2">Concluiu o ensino médio na rede pública e ingressou na Universidade Ibirapuera, onde realizou o sonho de cursar Direito. Em seguida, pós-graduou-se pela Universidade Damásio de Jesus.</p>
+      <blockquote data-cms="historia.citacao" data-cms-label="Frase em destaque">Através de seus projetos, faz aquilo que nunca teve quando era criança.</blockquote>
+      <p data-cms="historia.p3" data-cms-label="Parágrafo 3">Hoje, conhecido como “PC”, transforma em realidade o que era sonho para muitos moradores da região, levando cultura, lazer, esporte, saúde, educação e inclusão social por meio de eventos e estruturas permanentes.</p>
     </div>
     <div class="rv">
-      <div class="video" data-yt="AFS188n3dIg" style="background-image:url(https://img.youtube.com/vi/AFS188n3dIg/hqdefault.jpg)">
+      <div class="video" data-yt="AFS188n3dIg" style="background-image:url(https://img.youtube.com/vi/AFS188n3dIg/hqdefault.jpg)" data-cms="historia.video" data-cms-label="Vídeo (link do YouTube)" data-cms-type="youtube">
         <div class="play"></div>
-        <div class="video-cap"><b>Assista ao vídeo</b>Conheça o Dr. PC</div>
+        <div class="video-cap"><b data-cms="historia.video.t1" data-cms-label="Vídeo: legenda 1">Assista ao vídeo</b><span data-cms="historia.video.t2" data-cms-label="Vídeo: legenda 2">Conheça o Dr. PC</span></div>
       </div>
       <div class="story-imgs">
-        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-1.jpg" alt="Ação social com crianças da comunidade" loading="lazy">
-        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-6.jpg" alt="Evento comunitário na zona sul" loading="lazy">
+        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-1.jpg" alt="Ação social com crianças da comunidade" loading="lazy" data-cms="historia.foto1" data-cms-label="Foto 1" data-cms-type="image">
+        <img src="https://www.agaleradrpc.com.br/assets/img/fotos/drpaulocesar-6.jpg" alt="Evento comunitário na zona sul" loading="lazy" data-cms="historia.foto2" data-cms-label="Foto 2" data-cms-type="image">
       </div>
     </div>
   </div>
 </section>
 
-<section class="cred" id="trajetoria">
+<section class="cred" id="trajetoria" data-cms-section="Trajetória">
   <div class="wrap">
     <div class="cred-head rv">
       <div>
-        <span class="eyebrow">Trajetória</span>
-        <h2>Formação e atuação</h2>
+        <span class="eyebrow" data-cms="traj.eyebrow" data-cms-label="Rótulo">Trajetória</span>
+        <h2 data-cms="traj.titulo" data-cms-label="Título">Formação e atuação</h2>
       </div>
       <a href="https://www.agaleradrpc.com.br/biografia.php" target="_blank" rel="noopener" class="btn btn-dark">Biografia completa →</a>
     </div>
     <div class="cred-grid">
       <div class="card rv">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
-        <h3>Formação acadêmica</h3>
+        <h3 data-cms="traj.c1.titulo" data-cms-label="Cartão 1: título">Formação acadêmica</h3>
         <ul>
-          <li>Doutorado em Direito pela PUC</li>
-          <li>Pós-graduado pela PUC em Crimes Eleitorais</li>
-          <li>Mestre em Direito Ambiental</li>
-          <li>Especialista em Direito Público (Difuso e Coletivo)</li>
-          <li>Pós-graduado em Direito Penal e Processo Penal</li>
-          <li>Pós-graduação em Engenharia Aeronáutica</li>
+          <li data-cms="traj.c1.item1" data-cms-label="Cartão 1: item 1">Doutorado em Direito pela PUC</li>
+          <li data-cms="traj.c1.item2" data-cms-label="Cartão 1: item 2">Pós-graduado pela PUC em Crimes Eleitorais</li>
+          <li data-cms="traj.c1.item3" data-cms-label="Cartão 1: item 3">Mestre em Direito Ambiental</li>
+          <li data-cms="traj.c1.item4" data-cms-label="Cartão 1: item 4">Especialista em Direito Público (Difuso e Coletivo)</li>
+          <li data-cms="traj.c1.item5" data-cms-label="Cartão 1: item 5">Pós-graduado em Direito Penal e Processo Penal</li>
+          <li data-cms="traj.c1.item6" data-cms-label="Cartão 1: item 6">Pós-graduação em Engenharia Aeronáutica</li>
         </ul>
       </div>
       <div class="card rv">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></div>
-        <h3>Atividades exercidas</h3>
+        <h3 data-cms="traj.c2.titulo" data-cms-label="Cartão 2: título">Atividades exercidas</h3>
         <ul>
-          <li>Autor do livro “Crimes Eleitorais e Corrupção Eleitoral”</li>
-          <li>Procurador do Conselho Federal dos Parlamentares</li>
-          <li>Membro do CONSEG — Conselho Comunitário de Segurança</li>
-          <li>Juiz Arbitral, conciliação e mediação</li>
-          <li>Supervisor Municipal de Cultura</li>
-          <li>Diretor de Parque — Secretaria do Verde e Meio Ambiente</li>
+          <li data-cms="traj.c2.item1" data-cms-label="Cartão 2: item 1">Autor do livro “Crimes Eleitorais e Corrupção Eleitoral”</li>
+          <li data-cms="traj.c2.item2" data-cms-label="Cartão 2: item 2">Procurador do Conselho Federal dos Parlamentares</li>
+          <li data-cms="traj.c2.item3" data-cms-label="Cartão 2: item 3">Membro do CONSEG — Conselho Comunitário de Segurança</li>
+          <li data-cms="traj.c2.item4" data-cms-label="Cartão 2: item 4">Juiz Arbitral, conciliação e mediação</li>
+          <li data-cms="traj.c2.item5" data-cms-label="Cartão 2: item 5">Supervisor Municipal de Cultura</li>
+          <li data-cms="traj.c2.item6" data-cms-label="Cartão 2: item 6">Diretor de Parque — Secretaria do Verde e Meio Ambiente</li>
         </ul>
       </div>
       <div class="card rv">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></div>
-        <h3>Além do Direito</h3>
+        <h3 data-cms="traj.c3.titulo" data-cms-label="Cartão 3: título">Além do Direito</h3>
         <ul>
-          <li>Penta Campeão Brasileiro de Jet Ski</li>
-          <li>Piloto de helicóptero e de avião</li>
-          <li>Líder comunitário: Natal e Páscoa Solidária</li>
-          <li>Empresário nos ramos imobiliário e de assessoria</li>
-          <li>Diplomado pela Johns Hopkins University SAIS — EUA</li>
-          <li>Inglês, espanhol e japonês avançados</li>
+          <li data-cms="traj.c3.item1" data-cms-label="Cartão 3: item 1">Penta Campeão Brasileiro de Jet Ski</li>
+          <li data-cms="traj.c3.item2" data-cms-label="Cartão 3: item 2">Piloto de helicóptero e de avião</li>
+          <li data-cms="traj.c3.item3" data-cms-label="Cartão 3: item 3">Líder comunitário: Natal e Páscoa Solidária</li>
+          <li data-cms="traj.c3.item4" data-cms-label="Cartão 3: item 4">Empresário nos ramos imobiliário e de assessoria</li>
+          <li data-cms="traj.c3.item5" data-cms-label="Cartão 3: item 5">Diplomado pela Johns Hopkins University SAIS — EUA</li>
+          <li data-cms="traj.c3.item6" data-cms-label="Cartão 3: item 6">Inglês, espanhol e japonês avançados</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="props" id="propostas">
+<section class="props" id="propostas" data-cms-section="Propostas">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Nossas propostas</span>
-      <h2>Compromissos com São Paulo</h2>
-      <p class="lead">Propostas nas áreas de saúde, educação, habitação, cultura, esporte, lazer, sustentabilidade e mobilidade — pensadas para as regiões que mais precisam.</p>
+      <span class="eyebrow" data-cms="prop.eyebrow" data-cms-label="Rótulo">Nossas propostas</span>
+      <h2 data-cms="prop.titulo" data-cms-label="Título">Compromissos com São Paulo</h2>
+      <p class="lead" data-cms="prop.texto" data-cms-label="Texto">Propostas nas áreas de saúde, educação, habitação, cultura, esporte, lazer, sustentabilidade e mobilidade — pensadas para as regiões que mais precisam.</p>
     </div>
     <div class="props-grid">
-      <div class="prop rv"><span class="n">01</span><h3>Saúde</h3><p>Acelerar o processo de construção das unidades de saúde que já estão previstas.</p></div>
-      <div class="prop rv"><span class="n">02</span><h3>Habitação</h3><p>Ampliar e viabilizar a regularização fundiária.</p></div>
-      <div class="prop rv"><span class="n">03</span><h3>Educação</h3><p>Aumentar o número de professoras nas salas da educação infantil — hoje é 1 professora para 35 alunos.</p></div>
-      <div class="prop rv"><span class="n">04</span><h3>Cultura, Esporte e Lazer</h3><p>Usar os espaços públicos da cidade para eventos culturais, promovendo artistas regionais e o crescimento cultural da população.</p></div>
-      <div class="prop rv"><span class="n">05</span><h3>Sustentabilidade</h3><p>Levar emprego às regiões extremas da cidade, formalizando parcerias com empresas privadas.</p></div>
-      <div class="prop rv"><span class="n">06</span><h3>Transporte e Mobilidade</h3><p>Acelerar a construção da ponte que ligará o Grajaú (Jd. Gaivotas) à Cidade Dutra (Sesc Interlagos).</p></div>
+      <div class="prop rv"><span class="n">01</span><h3 data-cms="prop.1.titulo" data-cms-label="Proposta 1: título">Saúde</h3><p data-cms="prop.1.texto" data-cms-label="Proposta 1: texto">Acelerar o processo de construção das unidades de saúde que já estão previstas.</p></div>
+      <div class="prop rv"><span class="n">02</span><h3 data-cms="prop.2.titulo" data-cms-label="Proposta 2: título">Habitação</h3><p data-cms="prop.2.texto" data-cms-label="Proposta 2: texto">Ampliar e viabilizar a regularização fundiária.</p></div>
+      <div class="prop rv"><span class="n">03</span><h3 data-cms="prop.3.titulo" data-cms-label="Proposta 3: título">Educação</h3><p data-cms="prop.3.texto" data-cms-label="Proposta 3: texto">Aumentar o número de professoras nas salas da educação infantil — hoje é 1 professora para 35 alunos.</p></div>
+      <div class="prop rv"><span class="n">04</span><h3 data-cms="prop.4.titulo" data-cms-label="Proposta 4: título">Cultura, Esporte e Lazer</h3><p data-cms="prop.4.texto" data-cms-label="Proposta 4: texto">Usar os espaços públicos da cidade para eventos culturais, promovendo artistas regionais e o crescimento cultural da população.</p></div>
+      <div class="prop rv"><span class="n">05</span><h3 data-cms="prop.5.titulo" data-cms-label="Proposta 5: título">Sustentabilidade</h3><p data-cms="prop.5.texto" data-cms-label="Proposta 5: texto">Levar emprego às regiões extremas da cidade, formalizando parcerias com empresas privadas.</p></div>
+      <div class="prop rv"><span class="n">06</span><h3 data-cms="prop.6.titulo" data-cms-label="Proposta 6: título">Transporte e Mobilidade</h3><p data-cms="prop.6.texto" data-cms-label="Proposta 6: texto">Acelerar a construção da ponte que ligará o Grajaú (Jd. Gaivotas) à Cidade Dutra (Sesc Interlagos).</p></div>
     </div>
   </div>
 </section>
 
-<section class="honor">
+<section class="honor" data-cms-section="Homenagem no Paraguai">
   <div class="wrap">
     <div class="honor-imgs rv">
-      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_capa.jpg" alt="Homenagem em Cerro Corá, Paraguai" loading="lazy">
-      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_01.jpg" alt="Placa de reconhecimento e gratidão" loading="lazy">
-      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_03.jpg" alt="Registro da homenagem" loading="lazy">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_capa.jpg" alt="Homenagem em Cerro Corá, Paraguai" loading="lazy" data-cms="paraguai.foto1" data-cms-label="Foto 1" data-cms-type="image">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_01.jpg" alt="Placa de reconhecimento e gratidão" loading="lazy" data-cms="paraguai.foto2" data-cms-label="Foto 2" data-cms-type="image">
+      <img src="https://www.agaleradrpc.com.br/assets/img/fotos/coloniamariaauxiliadora_03.jpg" alt="Registro da homenagem" loading="lazy" data-cms="paraguai.foto3" data-cms-label="Foto 3" data-cms-type="image">
     </div>
     <div class="rv">
-      <span class="eyebrow">Reconhecimento internacional</span>
-      <h2>Homenageado no Paraguai, em Cerro Corá</h2>
-      <p class="lead">O Dr. Paulo César, procurador do CONFEP, foi homenageado pelas autoridades da cidade de Cerro Corá, ao lado do prefeito Wil Figueredo, pelos trabalhos sociais realizados — juntamente com a juíza da Vara de Execuções Criminais de Pedro Juan Caballero, Dra. Dalmi Gomes.</p>
+      <span class="eyebrow" data-cms="paraguai.eyebrow" data-cms-label="Rótulo">Reconhecimento internacional</span>
+      <h2 data-cms="paraguai.titulo" data-cms-label="Título">Homenageado no Paraguai, em Cerro Corá</h2>
+      <p class="lead" data-cms="paraguai.texto" data-cms-label="Texto">O Dr. Paulo César, procurador do CONFEP, foi homenageado pelas autoridades da cidade de Cerro Corá, ao lado do prefeito Wil Figueredo, pelos trabalhos sociais realizados — juntamente com a juíza da Vara de Execuções Criminais de Pedro Juan Caballero, Dra. Dalmi Gomes.</p>
       <br>
       <a href="https://www.agaleradrpc.com.br/cerro-cora.php" target="_blank" rel="noopener" class="btn btn-dark">Confira a matéria →</a>
     </div>
   </div>
 </section>
 
-<section class="gallery" id="galeria">
+<section class="gallery" id="galeria" data-cms-section="Galeria (títulos)">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Galeria</span>
-      <h2>Ao lado da comunidade</h2>
-      <p class="lead">Eventos, ações sociais, obras, futebol e os momentos da Galera do Dr. PC.</p>
+      <span class="eyebrow" data-cms="galeria.eyebrow" data-cms-label="Rótulo">Galeria</span>
+      <h2 data-cms="galeria.titulo" data-cms-label="Título">Ao lado da comunidade</h2>
+      <p class="lead" data-cms="galeria.texto" data-cms-label="Texto">Eventos, ações sociais, obras, futebol e os momentos da Galera do Dr. PC.</p>
     </div>
     <div class="filters" id="filters">
       <button class="on" data-f="drpaulocesar">Ações sociais</button>
@@ -581,13 +581,13 @@ footer a:hover{color:var(--gold-2)}
   </div>
 </section>
 
-<section class="vt" id="videos">
+<section class="vt" id="videos" data-cms-section="Vídeos">
   <div class="wrap">
     <div class="vt-head rv">
       <div>
-        <span class="eyebrow">Em vídeo</span>
-        <h2>Histórias que falam por si</h2>
-        <p class="lead">Ações sociais, eventos e momentos com a comunidade, registrados no canal oficial.</p>
+        <span class="eyebrow" data-cms="videos.eyebrow" data-cms-label="Rótulo">Em vídeo</span>
+        <h2 data-cms="videos.titulo" data-cms-label="Título">Histórias que falam por si</h2>
+        <p class="lead" data-cms="videos.texto" data-cms-label="Texto">Ações sociais, eventos e momentos com a comunidade, registrados no canal oficial.</p>
       </div>
       <a class="btn btn-yt" href="https://www.youtube.com/@dr.paulocesarop.c3416?sub_confirmation=1" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 00-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 001 7.2 31 31 0 00.5 12 31 31 0 001 16.8a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1 31 31 0 00.5-4.8 31 31 0 00-.5-4.8zM9.7 15.1V8.9L15.5 12z"/></svg>
@@ -595,14 +595,21 @@ footer a:hover{color:var(--gold-2)}
       </a>
     </div>
     <div class="vt-feature rv">
-      <div class="video" data-yt="AxSjKHTzmk4" style="background-image:url(https://img.youtube.com/vi/AxSjKHTzmk4/hqdefault.jpg)"><div class="play"></div></div>
+      <div class="video" data-yt="AxSjKHTzmk4" style="background-image:url(https://img.youtube.com/vi/AxSjKHTzmk4/hqdefault.jpg)" data-cms="videos.destaque.video" data-cms-label="Vídeo em destaque (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div>
       <div class="vt-quote">
         <span class="qm">“</span>
-        <blockquote>Conheça os trabalhos do Dr. Paulo César, o PC</blockquote>
+        <blockquote data-cms="videos.destaque.titulo" data-cms-label="Vídeo em destaque: título">Conheça os trabalhos do Dr. Paulo César, o PC</blockquote>
         <div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>Canal oficial no YouTube</div></div>
       </div>
     </div>
-    <div class="vt-row" id="vids"></div>
+    <div class="vt-row" id="vids">
+      <article class="vt-card rv"><div class="video" data-yt="rd5NV6UmXUk" style="background-image:url(https://img.youtube.com/vi/rd5NV6UmXUk/hqdefault.jpg)" data-cms="videos.1.video" data-cms-label="Vídeo 1 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.1.titulo" data-cms-label="Vídeo 1: título">A Galera DR. PC</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+      <article class="vt-card rv"><div class="video" data-yt="UwmM6UIHjGU" style="background-image:url(https://img.youtube.com/vi/UwmM6UIHjGU/hqdefault.jpg)" data-cms="videos.2.video" data-cms-label="Vídeo 2 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.2.titulo" data-cms-label="Vídeo 2: título">Dia das Crianças</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+      <article class="vt-card rv"><div class="video" data-yt="5RWJNkh3Jq8" style="background-image:url(https://img.youtube.com/vi/5RWJNkh3Jq8/hqdefault.jpg)" data-cms="videos.3.video" data-cms-label="Vídeo 3 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.3.titulo" data-cms-label="Vídeo 3: título">Capoeira</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+      <article class="vt-card rv"><div class="video" data-yt="PoPqdcQKrcQ" style="background-image:url(https://img.youtube.com/vi/PoPqdcQKrcQ/hqdefault.jpg)" data-cms="videos.4.video" data-cms-label="Vídeo 4 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.4.titulo" data-cms-label="Vídeo 4: título">Coquetel com o PC</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+      <article class="vt-card rv"><div class="video" data-yt="zoSu370Yfcc" style="background-image:url(https://img.youtube.com/vi/zoSu370Yfcc/hqdefault.jpg)" data-cms="videos.5.video" data-cms-label="Vídeo 5 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.5.titulo" data-cms-label="Vídeo 5: título">Para que haja a existência de um ser…</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+      <article class="vt-card rv"><div class="video" data-yt="AFS188n3dIg" style="background-image:url(https://img.youtube.com/vi/AFS188n3dIg/hqdefault.jpg)" data-cms="videos.6.video" data-cms-label="Vídeo 6 (link do YouTube)" data-cms-type="youtube"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3 data-cms="videos.6.titulo" data-cms-label="Vídeo 6: título">Autor do livro Crimes Eleitorais — Corrupção Eleitoral</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>
+    </div>
   </div>
 </section>
 
@@ -624,27 +631,27 @@ footer a:hover{color:var(--gold-2)}
   </div>
 </section>
 
-<section class="contact" id="contato">
+<section class="contact" id="contato" data-cms-section="Contato">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Fale com O PC</span>
-      <h2>Deixe seu recado para o Dr. Paulo César</h2>
-      <p class="lead">Sugestões, convites, demandas do seu bairro ou uma mensagem de apoio — a assessoria responde.</p>
+      <span class="eyebrow" data-cms="contato.eyebrow" data-cms-label="Rótulo">Fale com O PC</span>
+      <h2 data-cms="contato.titulo" data-cms-label="Título">Deixe seu recado para o Dr. Paulo César</h2>
+      <p class="lead" data-cms="contato.texto" data-cms-label="Texto">Sugestões, convites, demandas do seu bairro ou uma mensagem de apoio — a assessoria responde.</p>
       <br>
-      <a href="mailto:paulocesardrpc123@gmail.com" class="btn btn-gold">Enviar mensagem →</a>
+      <a href="mailto:paulocesardrpc123@gmail.com" class="btn btn-gold" data-cms-href="contato.email">Enviar mensagem →</a>
     </div>
     <div class="channels rv">
-      <a class="channel main" href="mailto:paulocesardrpc123@gmail.com">
+      <a class="channel main" href="mailto:paulocesardrpc123@gmail.com" data-cms-href="contato.email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        <div><small>E-mail principal</small><span>paulocesardrpc123@gmail.com</span></div>
+        <div><small>E-mail principal</small><span data-cms="contato.email" data-cms-label="E-mail principal" data-cms-type="email">paulocesardrpc123@gmail.com</span></div>
       </a>
-      <a class="channel main" href="tel:+5511996041466">
+      <a class="channel main" href="tel:+5511996041466" data-cms-href="contato.telefone">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>
-        <div><small>Telefone principal</small><span>(11) 99604-1466</span></div>
+        <div><small>Telefone principal</small><span data-cms="contato.telefone" data-cms-label="Telefone principal" data-cms-type="phone">(11) 99604-1466</span></div>
       </a>
       <a class="channel js-wa" data-msg="Olá! Vim pelo site do Dr. PC." href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
-        <div><small>WhatsApp</small><span>(11) 99604-1466</span></div>
+        <div><small>WhatsApp</small><span data-cms="contato.whatsapp" data-cms-label="WhatsApp (vale para todos os botões do site)" data-cms-type="whatsapp">(11) 99604-1466</span></div>
       </a>
       <a class="channel" href="https://www.instagram.com/drpaulocesaropc/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
@@ -654,14 +661,14 @@ footer a:hover{color:var(--gold-2)}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h2z"/></svg>
         <div><small>Facebook</small><span>/drpaulocesaropc</span></div>
       </a>
-      <p class="channels-more">Assessoria: <a href="mailto:assessoriadrpaulocesar@gmail.com">assessoriadrpaulocesar@gmail.com</a> · <a href="tel:+5511971109006">(11) 97110-9006</a></p>
+      <p class="channels-more">Assessoria: <a href="mailto:assessoriadrpaulocesar@gmail.com" data-cms="contato.assessoria.email" data-cms-label="E-mail da assessoria" data-cms-type="email">assessoriadrpaulocesar@gmail.com</a> · <a href="tel:+5511971109006" data-cms="contato.assessoria.telefone" data-cms-label="Telefone da assessoria" data-cms-type="phone">(11) 97110-9006</a></p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>© Dr. Paulo César, O PC — <a href="mailto:paulocesardrpc123@gmail.com">paulocesardrpc123@gmail.com</a> · <a href="tel:+5511996041466">(11) 99604-1466</a></span>
+    <span>© Dr. Paulo César, O PC — <a href="mailto:paulocesardrpc123@gmail.com" data-cms="contato.email">paulocesardrpc123@gmail.com</a> · <a href="tel:+5511996041466" data-cms="contato.telefone">(11) 99604-1466</a></span>
     <span><a href="https://www.instagram.com/drpaulocesaropc/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/drpaulocesaropc" target="_blank" rel="noopener">Facebook</a> · <a href="#inicio">Voltar ao topo ↑</a></span>
   </div>
 </footer>
@@ -717,18 +724,9 @@ addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
   if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
 
 // WhatsApp — troque o número aqui (DDI + DDD + número, só dígitos)
-const WHATSAPP='5511996041466';
+const WHATSAPP=document.body.dataset.wa||'5511996041466';
 document.querySelectorAll('.js-wa').forEach(a=>{a.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(a.dataset.msg||'Olá! Vim pelo site do Dr. PC.')}`});
 
-const vids=[
-  ['rd5NV6UmXUk','A Galera DR. PC'],
-  ['UwmM6UIHjGU','Dia das Crianças'],
-  ['5RWJNkh3Jq8','Capoeira'],
-  ['PoPqdcQKrcQ','Coquetel com o PC'],
-  ['zoSu370Yfcc','Para que haja a existência de um ser…'],
-  ['AFS188n3dIg','Autor do livro Crimes Eleitorais — Corrupção Eleitoral']
-];
-document.getElementById('vids').innerHTML=vids.map(([id,t])=>`<article class="vt-card rv"><div class="video" data-yt="${id}" style="background-image:url(https://img.youtube.com/vi/${id}/hqdefault.jpg)"><div class="play"></div></div><div class="body"><span class="qm">“</span><h3>${t}</h3><div class="who"><img src="img/pc-hero.png" alt=""><div><b>Dr. Paulo César, O PC</b>YouTube</div></div></div></article>`).join('');
 document.addEventListener('click',e=>{const v=e.target.closest('.video[data-yt]');if(!v||v.querySelector('iframe'))return;
   v.insertAdjacentHTML('beforeend',`<iframe src="https://www.youtube.com/embed/${v.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Vídeo"></iframe>`)});
 
