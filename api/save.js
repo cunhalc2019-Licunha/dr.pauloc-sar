@@ -2,7 +2,7 @@
 // grava content.json + fotos novas num único commit. A Vercel publica em seguida.
 import * as cheerio from 'cheerio';
 import { cleanValue, readField } from '../lib/cms.mjs';
-import { BRANCH, guard, gh, readRepoFile, send } from './_lib.js';
+import { commitFiles, guard, readRepoFile, send } from './_lib.js';
 
 export default async function handler(req, res) {
   if (guard(req, res) !== true) return;
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       if (Object.values(values).includes(img.path)) uploads.push(img);
     }
 
-    const commitSha = await commit(
+    const commitSha = await commitFiles(
       [
         { path: 'content.json', content: JSON.stringify({ values }, null, 1) + '\n' },
         ...uploads.map((i) => ({ path: i.path, sha: i.sha })),
@@ -59,22 +59,3 @@ export default async function handler(req, res) {
   }
 }
 
-async function commit(files, message, attempt = 1) {
-  const ref = await gh(`/git/ref/heads/${BRANCH}`);
-  const parent = await gh(`/git/commits/${ref.object.sha}`);
-  const tree = await gh('/git/trees', {
-    method: 'POST',
-    body: {
-      base_tree: parent.tree.sha,
-      tree: files.map((f) => (f.sha ? { path: f.path, mode: '100644', type: 'blob', sha: f.sha } : { path: f.path, mode: '100644', type: 'blob', content: f.content })),
-    },
-  });
-  const c = await gh('/git/commits', { method: 'POST', body: { message, tree: tree.sha, parents: [ref.object.sha] } });
-  try {
-    await gh(`/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: { sha: c.sha, force: false } });
-  } catch (e) {
-    if (e.status === 422 && attempt < 3) return commit(files, message, attempt + 1); // alguém salvou ao mesmo tempo
-    throw e;
-  }
-  return c.sha;
-}

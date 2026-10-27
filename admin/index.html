@@ -32,6 +32,9 @@ textarea.in{min-height:110px;resize:vertical}
 .msg{margin-top:14px;font-size:.88rem;min-height:1.2em}
 .msg.err{color:var(--err)}
 .login .btn{width:100%;margin-top:18px}
+.login .alt{margin:18px 0 0;font-size:.85rem;color:var(--muted)}
+.login .alt a{color:var(--gold);font-weight:600}
+.msg.ok{color:var(--ok)}
 
 /* app */
 .top{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px}
@@ -89,18 +92,43 @@ textarea.in{min-height:110px;resize:vertical}
 
 <div class="login hidden" id="login">
   <form id="loginForm">
-    <h1>Painel do site</h1>
-    <p>Dr. Paulo César, O PC — área restrita para editar textos e fotos.</p>
-    <label class="f" for="pw">Senha de administrador</label>
+    <h1>Área do administrador</h1>
+    <p>Dr. Paulo César, O PC — acesso restrito para editar textos e fotos do site.</p>
+    <label class="f" for="em">E-mail cadastrado</label>
+    <input class="in" id="em" type="email" autocomplete="username" required>
+    <label class="f" for="pw" style="margin-top:14px">Senha</label>
     <input class="in" id="pw" type="password" autocomplete="current-password" required>
     <button class="btn btn-gold" type="submit">Entrar</button>
     <div class="msg err" id="loginMsg"></div>
+    <p class="alt">Primeiro acesso ou esqueceu a senha? <a href="#" id="goReset">Receber código por e-mail</a></p>
+  </form>
+
+  <form id="resetForm" class="hidden">
+    <h1>Criar senha</h1>
+    <p id="resetIntro">Digite o e-mail cadastrado. Vamos enviar um código de 6 dígitos para confirmar que é você.</p>
+    <div id="step1">
+      <label class="f" for="rem">E-mail cadastrado</label>
+      <input class="in" id="rem" type="email" autocomplete="username">
+      <button class="btn btn-gold" type="button" id="sendCode">Enviar código</button>
+    </div>
+    <div id="step2" class="hidden">
+      <label class="f" for="code">Código recebido por e-mail</label>
+      <input class="in" id="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000">
+      <label class="f" for="np1" style="margin-top:14px">Nova senha (mínimo 10 caracteres)</label>
+      <input class="in" id="np1" type="password" autocomplete="new-password">
+      <label class="f" for="np2" style="margin-top:14px">Repita a nova senha</label>
+      <input class="in" id="np2" type="password" autocomplete="new-password">
+      <button class="btn btn-gold" type="button" id="savePw">Criar senha e entrar</button>
+      <p class="alt">Não chegou? Veja a caixa de spam ou <a href="#" id="resend">envie de novo</a>.</p>
+    </div>
+    <div class="msg" id="resetMsg"></div>
+    <p class="alt"><a href="#" id="goLogin">← Voltar para o login</a></p>
   </form>
 </div>
 
 <div class="setup hidden" id="setup">
   <h1>Painel ainda não configurado</h1>
-  <p>Para ativar o login, defina na Vercel (Settings → Environment Variables) as variáveis <code>ADMIN_PASSWORD</code> e <code>GITHUB_TOKEN</code> e faça um novo deploy.</p>
+  <p>Para ativar o acesso, defina na Vercel (Settings → Environment Variables) as variáveis <code>GITHUB_TOKEN</code> e <code>RESEND_API_KEY</code> e faça um novo deploy.</p>
 </div>
 
 <div class="hidden" id="app">
@@ -155,17 +183,56 @@ async function boot() {
   if (!s.authed) return showLogin();
   await openApp();
 }
-function showLogin() { $('#login').classList.remove('hidden'); $('#pw').focus(); }
+function showLogin() { $('#login').classList.remove('hidden'); showForm('login'); }
+function showForm(which) {
+  $('#loginForm').classList.toggle('hidden', which !== 'login');
+  $('#resetForm').classList.toggle('hidden', which !== 'reset');
+  (which === 'login' ? ($('#em').value ? $('#pw') : $('#em')) : $('#rem')).focus();
+}
+async function entered() {
+  $('#login').classList.add('hidden');
+  if (!$('#sections').children.length) await openApp();
+}
 
 $('#loginForm').onsubmit = async (e) => {
   e.preventDefault();
   const btn = e.target.querySelector('button'); btn.disabled = true; $('#loginMsg').textContent = '';
-  try {
-    await api('login', { password: $('#pw').value });
-    $('#login').classList.add('hidden');
-    if (!$('#sections').children.length) await openApp();
-  } catch (err) { $('#loginMsg').textContent = err.message; }
+  try { await api('login', { email: $('#em').value, password: $('#pw').value }); await entered(); }
+  catch (err) { $('#loginMsg').textContent = err.message; if (err.status === 409) { $('#rem').value = $('#em').value; } }
   finally { btn.disabled = false; $('#pw').value = ''; }
+};
+
+// Primeiro acesso / esqueci a senha
+let ticket = '';
+const rmsg = (t, ok) => { $('#resetMsg').textContent = t; $('#resetMsg').className = 'msg ' + (ok ? 'ok' : 'err'); };
+$('#goReset').onclick = (e) => { e.preventDefault(); $('#rem').value ||= $('#em').value; rmsg(''); showForm('reset'); };
+$('#goLogin').onclick = (e) => { e.preventDefault(); showForm('login'); };
+async function sendCode() {
+  const btn = $('#sendCode'); btn.disabled = true; rmsg('Enviando…', true);
+  try {
+    ticket = (await api('code', { email: $('#rem').value })).ticket;
+    $('#step1').classList.add('hidden'); $('#step2').classList.remove('hidden');
+    $('#resetIntro').textContent = 'Se o e-mail estiver cadastrado, você vai receber um código em instantes. Ele vale por 10 minutos.';
+    rmsg(''); $('#code').focus();
+  } catch (err) { rmsg(err.message); }
+  finally { btn.disabled = false; }
+}
+$('#sendCode').onclick = sendCode;
+$('#rem').onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); sendCode(); } };
+$('#resend').onclick = (e) => { e.preventDefault(); $('#step2').classList.add('hidden'); $('#step1').classList.remove('hidden'); sendCode(); };
+$('#savePw').onclick = async () => {
+  const a = $('#np1').value, b = $('#np2').value;
+  if (!/^\d{6}$/.test($('#code').value.trim())) return rmsg('Digite os 6 números do código.');
+  if (a.length < 10) return rmsg('A senha precisa ter pelo menos 10 caracteres.');
+  if (a !== b) return rmsg('As duas senhas não são iguais.');
+  const btn = $('#savePw'); btn.disabled = true; rmsg('Salvando…', true);
+  try {
+    await api('setpw', { ticket, code: $('#code').value.trim(), password: a });
+    $('#em').value = $('#rem').value; ['#code', '#np1', '#np2'].forEach((s) => ($(s).value = ''));
+    toast('Senha criada! Use o e-mail e esta senha nos próximos acessos.', 'ok');
+    await entered();
+  } catch (err) { rmsg(err.message); }
+  finally { btn.disabled = false; }
 };
 
 $('#logout').onclick = async () => {
